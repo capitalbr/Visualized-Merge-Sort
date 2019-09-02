@@ -1,6 +1,18 @@
 .array-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.array-container .secondary-displays {
+  display: flex;
+  width: 1000px;
   justify-content: center;
+}
+.array-container .secondary-displays .left-right {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 .array-container .array-main {
   display: flex;
@@ -39,6 +51,30 @@
 }
 .array-container .array-main .idx-9 {
   transform: translate(180px);
+}
+.array-container .stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.array-container .stack ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  list-style-type: none;
+  height: 300px;
+  width: fit-content;
+  padding: 0;
+  align-items: center;
+  width: 200px;
+  border: 1px solid gray;
+  margin: 0;
+}
+.array-container .box-title-bottom {
+  border: 3px solid gray;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=output.css.map */

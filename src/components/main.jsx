@@ -90,7 +90,7 @@ export default class Main extends React.Component {
 
 
   render(){
-    let arrays, left, right, stack;
+    let arrays, lefts, rights, stacks;
     if (this.state.iterations[0]) {
       // debugger
       arrays = this.state.iterations.map(step => {
@@ -98,24 +98,25 @@ export default class Main extends React.Component {
           return object.n;
         })
       })
-
-      stack = this.state.iterations.map(step => {
+      
+      stacks = this.state.iterations.map(step => {
         return step.arrays
       })
 
-      left = this.state.iterations.map(step => {
-        return <li>{step.left}</li>
+      lefts = this.state.iterations.map(step => {
+        return step.left
       })
 
-      right = this.state.iterations.map(step => {
-        return <li>{step.right}</li>
+      rights = this.state.iterations.map(step => {
+        return step.right
       })
     }
     
     return(
       <div>
-        <button onClick={(e) => this.mergeSort([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])}></button>
-        <ArrayIndex arrays={arrays}/>
+        <button onClick={(e) => this.mergeSort([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])}>
+        </button>
+        <ArrayIndex arrays={arrays} stacks={stacks} lefts={lefts} rights={rights}/>
         {/* <div style={{display: "flex"}}>
           <ul>{arrays}</ul>
           <ul>{left}</ul> 

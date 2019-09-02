@@ -1,6 +1,18 @@
 .array-container{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .secondary-displays{
+    display: flex;
+    width: 1000px;
+    justify-content: center;
+    .left-right{
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
   .array-main{
     display: flex;
     width: 530px;
@@ -38,6 +50,30 @@
     .idx-9{
       transform: translate(180px)
     }
+  }
+  .stack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    ul{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      list-style-type: none;
+      height: 300px;
+      width: fit-content;
+      padding: 0;
+      align-items: center;
+      width: 200px;
+      border: 1px solid gray;
+      margin: 0;
+    }
+  }
+  .box-title-bottom{
+    border: 3px solid gray;
+    display: flex;
+    justify-content: center;
   }
 }
 
