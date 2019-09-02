@@ -100,7 +100,7 @@ export default class Main extends React.Component {
       })
 
       stack = this.state.iterations.map(step => {
-        return <li>{step.arrays}</li>
+        return step.arrays
       })
 
       left = this.state.iterations.map(step => {
