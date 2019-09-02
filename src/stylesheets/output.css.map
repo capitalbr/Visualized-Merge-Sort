@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "",
-"sources": [],
-"names": [],
-"file": "output.css"
-}
+{"version":3,"sourceRoot":"","sources":["array.scss"],"names":[],"mappings":"AAAA;EACE;EACA;;AACA;EACE;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;;AAEF;EACE;;AAEF;EACE;;AAEF;EACE;;AAEF;EACE;;AAEF;EACE;;AAEF;EACE;;AAEF;EACE;;AAEF;EACE;;AAEF;EACE","file":"output.css"}

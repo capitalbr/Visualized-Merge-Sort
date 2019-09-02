@@ -1,6 +1,7 @@
 import React from 'react'
 // const React = require('react')
 // const random = require('lodash.random')
+import ArrayIndex from "./array_index"
 
 export default class Main extends React.Component {
 
@@ -13,8 +14,9 @@ export default class Main extends React.Component {
   }
 
   iterationStore(array, arrays, mid, left = [], right = []){
-    array = array.filter( el => el !== undefined);
+    // array = array.filter( el => el !== undefined);
     let arrayOfObjects = array.map((n, idx) => {
+      if (n === undefined) return { n: "undefined" }
       if (idx === mid) {
         return { n: n, class: "mid" };
       } else {
@@ -42,11 +44,13 @@ export default class Main extends React.Component {
       // this.iterationStore(copyArray.filter((el, i) => i === idx), arrays, midpoint, left, right);
       if (idx < midpoint) {
         left.push(el);
-        delete copyArray[idx];
+        // delete copyArray[idx];
+        copyArray[idx] = "undefined";
         this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice());
       } else {
         right.push(el);
-        delete copyArray[idx];
+        // delete copyArray[idx];
+        copyArray[idx] = "undefined";
         this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice());
       }
     })
@@ -86,13 +90,17 @@ export default class Main extends React.Component {
 
 
   render(){
-    let arrays, left, right;
+    let arrays, left, right, stack;
     if (this.state.iterations[0]) {
       // debugger
       arrays = this.state.iterations.map(step => {
-        return <li>{Object.values(step.arrayOfObjects).map( object => {
+        return Object.values(step.arrayOfObjects).map( object => {
           return object.n;
-        })}</li>
+        })
+      })
+
+      stack = this.state.iterations.map(step => {
+        return <li>{step.arrays}</li>
       })
 
       left = this.state.iterations.map(step => {
@@ -103,14 +111,16 @@ export default class Main extends React.Component {
         return <li>{step.right}</li>
       })
     }
+    
     return(
       <div>
         <button onClick={(e) => this.mergeSort([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])}></button>
-        <div style={{display: "flex"}}>
+        <ArrayIndex arrays={arrays}/>
+        {/* <div style={{display: "flex"}}>
           <ul>{arrays}</ul>
           <ul>{left}</ul> 
           <ul>{right}</ul>
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -154,3 +164,12 @@ export default class Main extends React.Component {
 //   merged = merged.concat(left, right);
 //   return merged;
 // }
+
+
+
+// using <li></li>
+// arrays = this.state.iterations.map(step => {
+//   return <li>{Object.values(step.arrayOfObjects).map(object => {
+//     return object.n;
+//   })}</li>
+// })
