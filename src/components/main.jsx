@@ -13,7 +13,7 @@ export default class Main extends React.Component {
     }
   }
 
-  iterationStore(array, arrays, mid, left = [], right = []){
+  iterationStore(array, arrays, mid, left = [], right = [], message = "nothing"){
     // array = array.filter( el => el !== undefined);
     let arrayOfObjects = array.map((n, idx) => {
       if (n === undefined) return { n: "undefined" }
@@ -28,7 +28,8 @@ export default class Main extends React.Component {
       arrays,
       arrayOfObjects,
       left,
-      right
+      right,
+      message
     })
     this.setState({
       iterations: newIterations
@@ -46,12 +47,12 @@ export default class Main extends React.Component {
         left.push(el);
         // delete copyArray[idx];
         copyArray[idx] = "undefined";
-        this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice());
+        this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice(), "less than midpoint so push to left array");
       } else {
         right.push(el);
         // delete copyArray[idx];
         copyArray[idx] = "undefined";
-        this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice());
+        this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice(), "greater than or equal to midpoint so push to right array");
       }
     })
   }
@@ -61,11 +62,12 @@ export default class Main extends React.Component {
     if (array.length <= 1) return array;
     this.iterationStore(array, arrays)
     const midpoint = Math.floor(array.length / 2);
-    this.iterationStore(array, arrays, midpoint);
+    this.iterationStore(array, arrays, midpoint, [], [], "find the midpoint");
     this.splitter(array, arrays, midpoint);
     const sortedLeft = this.mergeSort(array.slice(0, midpoint), arrays);
     const sortedRight = this.mergeSort(array.slice(midpoint), arrays);
-    this.iterationStore([], arrays, midpoint, sortedLeft, sortedRight);
+    // debugger
+    this.iterationStore([], arrays, midpoint, sortedLeft, sortedRight.slice(), "Sorted left/right arrays have returned and must be merged and sorted");
     return this.merge(sortedLeft, sortedRight, arrays, midpoint);
   }
 
@@ -75,22 +77,22 @@ export default class Main extends React.Component {
     while (left.length && right.length) {
       if (left[0] < right[0]) {
         merged.push(left.shift());
-        this.iterationStore(merged, arrays, midpoint, left, right);
+        this.iterationStore(merged, arrays, midpoint, left.slice(), right.slice(), "merged.push(left.shift())");
       } else {
         merged.push(right.shift());
-        this.iterationStore(merged, arrays, midpoint, left, right);
+        this.iterationStore(merged, arrays, midpoint, left.slice(), right.slice(), "merged.push(right.shift())");
       }
     }
 
     merged = merged.concat(left, right);
-    this.iterationStore(merged, arrays, midpoint, [], [])
+    this.iterationStore(merged, arrays, midpoint, [], [], "Merge any already sorted items remaining")
     return merged;
   }
 
 
 
   render(){
-    let arrays, lefts, rights, stacks;
+    let arrays, lefts, rights, stacks, messages;
     if (this.state.iterations[0]) {
       // debugger
       arrays = this.state.iterations.map(step => {
@@ -110,13 +112,19 @@ export default class Main extends React.Component {
       rights = this.state.iterations.map(step => {
         return step.right
       })
+
+      messages = this.state.iterations.map(step => {
+        return step.message;
+      })
     }
     
     return(
       <div>
         <button onClick={(e) => this.mergeSort([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])}>
         </button>
-        <ArrayIndex arrays={arrays} stacks={stacks} lefts={lefts} rights={rights}/>
+        <ArrayIndex arrays={arrays} stacks={stacks} lefts={lefts} rights={rights}
+          messages={messages}
+        />
         {/* <div style={{display: "flex"}}>
           <ul>{arrays}</ul>
           <ul>{left}</ul> 

@@ -29,6 +29,7 @@ export default class ArrayIndex extends React.Component {
         stack: this.props.stacks.shift(),
         left: this.props.lefts.shift(),
         right: this.props.rights.shift(),
+        message: this.props.messages.shift(),
         priorStack: this.state.stack
       })
     }
@@ -46,7 +47,7 @@ export default class ArrayIndex extends React.Component {
   }
 
   render(){
-    let items, stack, left, right, stackMessage;
+    let items, stack, left, right, stackMessage, message;
     if (this.state.array) {
       items = this.state.array.map((item, idx) => {
         return <div className={`idx-${idx} array-main-item`} key={`${item}-@i${idx}`}>
@@ -94,6 +95,10 @@ export default class ArrayIndex extends React.Component {
         </div>
       })
     }
+
+    if (this.state.message) {
+      message = this.state.message;
+    }
     
     return(
       <div className="array-container">
@@ -106,7 +111,6 @@ export default class ArrayIndex extends React.Component {
             <div>
               <ul>{stack}</ul>
               <div className="box-title-bottom">STACK</div>
-              {stackMessage}
             </div>
           </div>
           <div className="left-right">
@@ -114,8 +118,12 @@ export default class ArrayIndex extends React.Component {
             <div id="left-right-item">{right}</div>
           </div>
         </div>
+              {stackMessage}
         <div className="array-main">
           {items}
+        </div>
+        <div>
+          {message}
         </div>
       </div>
     )
