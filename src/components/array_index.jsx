@@ -82,16 +82,30 @@ export default class ArrayIndex extends React.Component {
 
     if (this.state.left) {
       left = this.state.left.map((item, idx) => {
+        let last = false;
+        if (idx === this.state.left.length - 1
+            && stackMessage !== "STACK LEVEL POPPED OFF"
+            && this.state.message !== "merged.push(left.shift())"
+            && this.state.message !== "merged.push(right.shift())") {
+            last = "left";
+          }
         return <div className={`idx-${idx}`} key={`${item}-@i${idx}`}>
-          <ArrayIndexItem item={item} leftRight={true}/>
+          <ArrayIndexItem item={item} leftRight={true} last={last}/>
         </div>
       })
     }
 
     if (this.state.right) {
       right = this.state.right.map((item, idx) => {
+        let last = false;
+        if (idx === this.state.right.length - 1 
+            && stackMessage !== "STACK LEVEL POPPED OFF"
+            && this.state.message !== "merged.push(right.shift())"
+            && this.state.message !== "merged.push(left.shift())") {
+              last = "right";
+            }
         return <div className={`idx-${idx}`} key={`${item}-@i${idx}`}>
-          <ArrayIndexItem item={item} leftRight={true}/>
+          <ArrayIndexItem item={item} leftRight={true} last={last}/>
         </div>
       })
     }
@@ -119,11 +133,11 @@ export default class ArrayIndex extends React.Component {
           </div>
         </div>
               {stackMessage}
-        <div className="array-main">
-          {items}
-        </div>
         <div>
           {message}
+        </div>
+        <div className="array-main">
+          {items}
         </div>
       </div>
     )
