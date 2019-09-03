@@ -12,7 +12,7 @@ export default class ArrayIndex extends React.Component {
       array: undefined
     }
     this.hold = true;
-    this.count = 3;
+    this.delay = 500;
   }
 
   componentDidMount(){
@@ -28,17 +28,25 @@ export default class ArrayIndex extends React.Component {
         array: this.props.arrays.shift(),
         stack: this.props.stacks.shift(),
         left: this.props.lefts.shift(),
-        right: this.props.rights.shift()
+        right: this.props.rights.shift(),
+        priorStack: this.state.stack
       })
     }
   }
 
+  intervalSet(delay = 500, initialSet = true){
+    if (initialSet) return delay;
+    clearInterval(this.interval);
+    this.delay = delay;
+    this.timerStart();
+  }
+
   timerStart(){
-    this.interval = setInterval(this.timerCallback.bind(this), 500);
+    this.interval = setInterval(this.timerCallback.bind(this), this.delay);
   }
 
   render(){
-    let items, stack, left, right;
+    let items, stack, left, right, stackMessage;
     if (this.state.array) {
       items = this.state.array.map((item, idx) => {
         return <div className={`idx-${idx} array-main-item`} key={`${item}-@i${idx}`}>
@@ -50,34 +58,61 @@ export default class ArrayIndex extends React.Component {
       stack = this.state.stack.map((level, idx) => {
         return <li key={`${level}-${idx}`}>{level}</li>
       })
+      let pStack = this.state.priorStack;
+      let sLength = this.state.stack.length
+      
+      if (pStack && pStack.length < sLength){
+          stackMessage = "RECURSIVE CALL MADE"
+          this.intervalSet(1500, false);
+        } else if (pStack && pStack.length > sLength) {
+          stackMessage = "STACK LEVEL POPPED OFF"
+          this.intervalSet(1500, false);
+        } else if (pStack && pStack.length === sLength
+            && pStack[0] !== this.state.stack[0]){
+          stackMessage = "STACK LEVEL POPPED OFF AND NEW STACK CALL MADE"
+          this.intervalSet(1500, false);
+        } else {
+          stackMessage = "CURRENT STACK IN PROGRESS"
+          if (this.delay !== 500){
+            this.intervalSet(500, false);
+          }
+        }
     }
 
     if (this.state.left) {
       left = this.state.left.map((item, idx) => {
-        return <div className={`idx-${idx} array-main-item`} key={`${item}-@i${idx}`}>
-          <ArrayIndexItem item={item} />
+        return <div className={`idx-${idx}`} key={`${item}-@i${idx}`}>
+          <ArrayIndexItem item={item} leftRight={true}/>
         </div>
       })
     }
 
     if (this.state.right) {
       right = this.state.right.map((item, idx) => {
-        return <div className={`idx-${idx} array-main-item`} key={`${item}-@i${idx}`}>
-          <ArrayIndexItem item={item} />
+        return <div className={`idx-${idx}`} key={`${item}-@i${idx}`}>
+          <ArrayIndexItem item={item} leftRight={true}/>
         </div>
       })
     }
+    
     return(
       <div className="array-container">
         <div className="secondary-displays">
-          <div className="left-right"><div>{left}</div></div>
+          <div className="left-right">
+            <div className="box-title-bottom">LEFT</div>
+            <div id="left-right-item">{left}</div>
+          </div>
           <div className="stack">
             <div>
               <ul>{stack}</ul>
-              <div className="box-title-bottom">Stack</div>
+              <div className="box-title-bottom">STACK</div>
+              {stackMessage}
             </div>
           </div>
-          <div className="left-right"><div>{right}</div></div>
+          <div className="left-right">
+            <div className="box-title-bottom">RIGHT</div>
+            <div id="left-right-item">{right}</div>
+          </div>
         </div>
         <div className="array-main">
           {items}

@@ -9,10 +9,10 @@ export default class ArrayIndexItem extends React.Component {
   }
 
   render() {
-    let height = "0px";
+    let px = "0px";
     let item = ""
     if (this.props.item !== "undefined") {
-      height = `${this.props.item * 10 + 10}px`;
+      px = `${this.props.item * 10 + 10}px`;
       item = this.props.item;
     }
     
@@ -23,25 +23,26 @@ export default class ArrayIndexItem extends React.Component {
       translate = "translate(0px, -10px)"
       color = "black"
     }
+    
+    let style = {
+      height: px,
+    }
+    let style2 = {
+      transform: translate,
+      color: color
+    }
+
+    if (this.props.leftRight){
+      style = {
+        width: px,
+      }
+      style2 = { color: "white" }
+    }
 
     return (
-      <div style={{
-        height: height,
-        backgroundColor: "blue",
-        marginLeft: "4px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
-        alignItems: "center",
-        width: "30px",
-        background: "linear-gradient(to left, #4cb8c4, #3cd3ad)",
-        // position: "absolute"
-      }
-      }>
-        <div style={{
-          transform: translate,
-          color: color
-        }}>{item}</div>
+      <div style={style}
+      className="array-index-item">
+        <div style={style2}>{item}</div>
       </div>
     )
   }
