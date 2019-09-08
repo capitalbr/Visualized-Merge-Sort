@@ -11,16 +11,16 @@ export default class ArrayIndexItem extends React.Component {
   render() {
     let px = "0px";
     let item = ""
-    if (this.props.item !== "undefined") {
-      px = `${this.props.item * 10 + 20}px`;
-      item = this.props.item;
+    if (this.props.item.n !== "undefined") {
+      px = `${this.props.item.n * 2 + 28}px`;
+      item = this.props.item.n;
     }
     
     
     let translate = "translate(0px, 0px)"
     let color = "white";
     let fontSize = "16px"
-    if (this.props.item !== "undefined" && this.props.item < 1) {
+    if (this.props.item.n !== "undefined" && this.props.item.n < 1) {
       translate = "translate(0px, -20px)"
       color = "black"
       fontSize = "14px"
@@ -49,9 +49,14 @@ export default class ArrayIndexItem extends React.Component {
     } else if (this.props.last === "left") {
       className = "array-index-item animate-left"
     }
+
+    let extraClass = "";
+    if (this.props.item.class){
+      extraClass = " midpoint"
+    }
     return (
       <div style={style}
-      className={className}>
+      className={className + extraClass}>
         <div style={style2}>{item}</div>
       </div>
     )

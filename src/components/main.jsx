@@ -13,7 +13,7 @@ export default class Main extends React.Component {
     }
   }
 
-  iterationStore(array, arrays, mid, left = [], right = [], message = "nothing"){
+  iterationStore(array, arrays, mid, left = [], right = [], message = 0){
     // array = array.filter( el => el !== undefined);
     let arrayOfObjects = array.map((n, idx) => {
       if (n === undefined) return { n: "undefined" }
@@ -23,12 +23,20 @@ export default class Main extends React.Component {
         return { n: n }
       }
     });
+
+    let leftObjects = left.map((n, idx) => {
+      return { n: n }
+    })
+    
+    let rightObjects = right.map((n, idx) => {
+      return { n: n }
+    })
     let newIterations = this.state.iterations;
     newIterations.push({
       arrays,
       arrayOfObjects,
-      left,
-      right,
+      leftObjects,
+      rightObjects,
       message
     })
     this.setState({
@@ -47,12 +55,12 @@ export default class Main extends React.Component {
         left.push(el);
         // delete copyArray[idx];
         copyArray[idx] = "undefined";
-        this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice(), "less than midpoint so push to left array");
+        this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice(), 2);
       } else {
         right.push(el);
         // delete copyArray[idx];
         copyArray[idx] = "undefined";
-        this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice(), "greater than or equal to midpoint so push to right array");
+        this.iterationStore(copyArray, arrays, midpoint, left.slice(), right.slice(), 3);
       }
     })
   }
@@ -62,12 +70,12 @@ export default class Main extends React.Component {
     if (array.length <= 1) return array;
     this.iterationStore(array, arrays)
     const midpoint = Math.floor(array.length / 2);
-    this.iterationStore(array, arrays, midpoint, [], [], "find the midpoint");
+    this.iterationStore(array, arrays, midpoint, [], [], 1);
     this.splitter(array, arrays, midpoint);
     const sortedLeft = this.mergeSort(array.slice(0, midpoint), arrays);
     const sortedRight = this.mergeSort(array.slice(midpoint), arrays);
     // debugger
-    this.iterationStore([], arrays, midpoint, sortedLeft, sortedRight.slice(), "Sorted left/right arrays have returned and must be merged and sorted");
+    this.iterationStore([], arrays, midpoint, sortedLeft, sortedRight.slice(), 4);
     return this.merge(sortedLeft, sortedRight, arrays, midpoint);
   }
 
@@ -77,19 +85,31 @@ export default class Main extends React.Component {
     while (left.length && right.length) {
       if (left[0] < right[0]) {
         merged.push(left.shift());
-        this.iterationStore(merged, arrays, midpoint, left.slice(), right.slice(), "merged.push(left.shift())");
+        this.iterationStore(merged, arrays, midpoint, left.slice(), right.slice(), 5);
       } else {
         merged.push(right.shift());
-        this.iterationStore(merged, arrays, midpoint, left.slice(), right.slice(), "merged.push(right.shift())");
+        this.iterationStore(merged, arrays, midpoint, left.slice(), right.slice(), 6);
       }
     }
 
     merged = merged.concat(left, right);
-    this.iterationStore(merged, arrays, midpoint, [], [], "Merge any already sorted items remaining")
+    this.iterationStore(merged, arrays, midpoint, [], [], 7)
     return merged;
   }
 
-
+  restartAnimation(e){
+    e.preventDefault();
+    // this.setState({
+    //   iterations: []
+    // })
+    this.state.iterations = [];
+    let array = [];
+    for (let i = 0; i < 10; i++) {
+      array.push(Math.floor(Math.random() * 
+      Math.floor(Math.random() * 100)))
+    }
+    this.mergeSort(array)
+  }
 
   render(){
     let arrays, lefts, rights, stacks, messages;
@@ -97,7 +117,7 @@ export default class Main extends React.Component {
       // debugger
       arrays = this.state.iterations.map(step => {
         return Object.values(step.arrayOfObjects).map( object => {
-          return object.n;
+          return object;
         })
       })
       
@@ -106,11 +126,11 @@ export default class Main extends React.Component {
       })
 
       lefts = this.state.iterations.map(step => {
-        return step.left
+        return step.leftObjects
       })
 
       rights = this.state.iterations.map(step => {
-        return step.right
+        return step.rightObjects
       })
 
       messages = this.state.iterations.map(step => {
@@ -119,12 +139,21 @@ export default class Main extends React.Component {
     }
     
     return(
-      <div>
-        <button onClick={(e) => this.mergeSort([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])}>
-        </button>
+      <div className="main">
+        <div className="user-controls">
+          <div className="menu-card" onClick={this.restartAnimation.bind(this)}>
+            <div className="menu-card-img">
+              <img src="https://media.giphy.com/media/Qvp6Z2fidQR34IcwQ5/giphy.gif"/>
+            </div>
+            <div className="menu-card-title">
+              <p>Reset</p>
+            </div>
+          </div>
+        </div>
         <ArrayIndex arrays={arrays} stacks={stacks} lefts={lefts} rights={rights}
           messages={messages}
         />
+        
         {/* <div style={{display: "flex"}}>
           <ul>{arrays}</ul>
           <ul>{left}</ul> 

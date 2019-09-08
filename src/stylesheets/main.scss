@@ -1,0 +1,13 @@
+.main{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  .user-controls{
+    display: flex;
+    margin-bottom: 100px;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+  }
+}

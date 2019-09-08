@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  margin-left: 90px;
   .secondary-displays{
     display: flex;
     width: 1000px;
@@ -12,7 +14,8 @@
       flex-direction: column-reverse;
       width: 150px;
       margin: 50px;
-      height: 400px;
+      height: 300px;
+      transform: translate(0px, 300px);
       .array-index-item{
         margin: 3px;
         display: flex;
@@ -32,6 +35,7 @@
     display: flex;
     width: 530px;
     height: 200px;
+    transform: translate(0px, -110px);
     .array-main-item{
       display: flex;
       flex-direction: column;
@@ -47,6 +51,9 @@
         div{
           margin: 5px;
         }
+      }
+      .midpoint{
+        background: linear-gradient(to left, rgb(180, 36, 36), rgb(255, 95, 95));
       }
     }
     .idx-1{
@@ -82,26 +89,45 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
     ul{
+      border: 2px solid black;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       list-style-type: none;
-      height: 300px;
+      height: 200px;
       width: fit-content;
       padding: 0;
       align-items: center;
-      width: 200px;
-      border: 1px solid gray;
+      width: 350px;
       margin: 0;
+      li{
+        margin: 4px;
+      }
     }
   }
-  .box-title-bottom{
-    border: 3px solid #AA33FF;
-    border-radius: 7px;
+  .pseudo-container{
+    transform: translate(0px, -110px);
     display: flex;
-    justify-content: center;
-    padding: 10px 35px;
+    flex-direction: column;
+    align-items: center;
+    // html targeting is buggy so must do this
+    #list{
+      list-style: none;
+      li{
+        margin-bottom: 10px;
+        .padding{
+          margin-left: 2.5em;
+          margin-top: .3em;
+          width: fit-content;
+          strong{
+            position: absolute;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -122,6 +148,12 @@
 }
 .animate-left{
   animation: diagonalLeft 0.5s 1;
+}
+.animate-grow{
+  animation: grow 0.5s 1;
+}
+.animate-grow2{
+  animation: grow2 0.5s 1;
 }
 
 
@@ -149,4 +181,14 @@
                background: linear-gradient(to left, #5A24B4, #FE37EA);
                width: 50px;
                height: 30px; }
+}
+
+@keyframes grow {
+  0% { transform: scale(0.4); }
+  100% { transform: scale(1) }
+}
+// necessary to trigger a rerender of the above animation
+@keyframes grow2 {
+  0% { transform: scale(0.4); }
+  100% { transform: scale(1) }
 }
