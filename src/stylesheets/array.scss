@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Share Tech Mono', monospace;
-  margin-left: 90px;
   .secondary-displays{
     display: flex;
     width: 1000px;
@@ -12,9 +11,9 @@
       display: flex;
       justify-content: end;
       flex-direction: column-reverse;
-      width: 150px;
-      min-width: 150px;
-      max-width: 150px;
+      width: 250px;
+      min-width: 250px;
+      max-width: 250px;
       margin: 50px;
       height: 300px;
       transform: translate(0px, 300px);
@@ -38,8 +37,56 @@
     width: 530px;
     height: 200px;
     transform: translate(0px, -110px);
-    border-bottom: 30px solid black;
-    border-radius: 7px;
+    border-bottom: 70px solid black;
+    border-radius: 15px;
+    #awaiting-input{
+      color: #AA33FF;
+      font-size: 63px;
+      padding-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 100%;
+      #a{
+        animation: float 6s ease-in-out infinite;
+      }
+      #w{
+        animation: float 3s ease-in-out infinite;        
+      }
+      #a2{
+        animation: float 4s ease-in-out infinite;
+      }
+      #i{
+        animation: float 5s ease-in-out infinite;
+      }
+      #t{
+        animation: float 3.7s ease-in-out infinite;
+      }
+      #i2{
+        animation: float 4.5s ease-in-out infinite;
+      }
+      #n{
+        animation: float 3.5s ease-in-out infinite;
+      }
+      #g{
+        animation: float 5.5s ease-in-out infinite;
+      }
+      #i3{
+        animation: float 3.5s ease-in-out infinite;
+      }
+      #n2{
+        animation: float 4.2s ease-in-out infinite;
+      }
+      #p{
+        animation: float 2.9s ease-in-out infinite;
+      }
+      #u{
+        animation: float 5.7s ease-in-out infinite;
+      }
+      #t2{
+        animation: float 3.1s ease-in-out infinite;
+      }
+    }
     .array-main-item{
       display: flex;
       flex-direction: column;
@@ -117,6 +164,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    .stackMessage{
+      margin-bottom: 15px;
+      font-weight: 1000;
+      font-size: 26px;
+      color: #AA33FF;
+    }
     // html targeting is buggy so must do this
     #list{
       list-style: none;
@@ -146,6 +199,17 @@
   align-items: center;
 }
 
+// USER CONTROLS MODIFICATION FOR ArrayIndex component
+#play-pause{
+  transform: translate(96px, -171px);
+  display: flex;
+  justify-content: space-between;
+  width: 325px;
+  height: 53px;
+}
+
+
+// ANIMATIONS
 
 .animate-right{
   animation: diagonalRight 0.5s 1;
@@ -195,4 +259,17 @@
 @keyframes grow2 {
   0% { transform: scale(0.4); }
   100% { transform: scale(1) }
+}
+
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
 }

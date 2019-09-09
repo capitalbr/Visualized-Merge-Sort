@@ -9,11 +9,17 @@ export default class ArrayIndex extends React.Component {
     super(props)
 
     this.state = {
-      array: undefined
+      array: undefined,
+      pausePlay: "invisible",
+      opacity: {
+        opacity: "0"
+      }
     }
     this.hold = true;
     this.delay = 500;
     this.animateGrow = "animate-grow"
+    this.initializePausePlay = true;
+    this.handler = () => {};
   }
 
   componentDidMount(){
@@ -37,14 +43,29 @@ export default class ArrayIndex extends React.Component {
   }
 
   intervalSet(delay = 500, initialSet = true){
+    if (this.state.pausePlay === "PLAY") return;
     if (initialSet) return delay;
     clearInterval(this.interval);
     this.delay = delay;
     this.timerStart();
   }
 
+  intervalPause(){
+    clearInterval(this.interval);
+    this.interval = undefined;
+  }
+
   timerStart(){
     this.interval = setInterval(this.timerCallback.bind(this), this.delay);
+  }
+
+  togglePausePlay(){
+    this.interval ? this.intervalPause() : this.timerStart();
+    if (this.state.pausePlay === "PLAY") {
+      this.setState({ pausePlay: "PAUSE" });
+    } else if (this.state.pausePlay === "PAUSE") {
+      this.setState({ pausePlay: "PLAY" });
+    }
   }
 
   toggleAnimation(){
@@ -56,14 +77,45 @@ export default class ArrayIndex extends React.Component {
   }
 
   render(){
-    let items, stack, left, right, stackMessage, message;
+    let stack, left, right, message;
+
+    let items = <div id="awaiting-input">
+      <div id="a">A</div>
+      <div id="w">w</div>
+      <div id="a2">a</div>
+      <div id="i">i</div>
+      <div id="t">t</div>
+      <div id="i2">i</div>
+      <div id="n">n</div>
+      <div id="g">g</div>&nbsp;
+      <div id="i3">I</div>
+      <div id="n2">n</div>
+      <div id="p">p</div>
+      <div id="u">u</div>
+      <div id="t2">t</div>
+    </div>
+    let stackMessage = "PRESS NEW CALL TO START"
     if (this.state.array) {
       items = this.state.array.map((item, idx) => {
         return <div className={`idx-${idx} array-main-item`} key={`${item}-@i${idx}`}>
           <ArrayIndexItem item={item}/>
         </div>
       })
+
+      if (this.initializePausePlay) {
+        this.setState({ 
+          pausePlay: "PAUSE",
+          opacity: {
+            opacity: 1
+          }
+        });
+        this.initializePausePlay = false;
+        this.handler = () => {
+          return this.togglePausePlay.bind(this);
+        }
+      }
     }
+    
     if (this.state.stack) {
       stack = this.state.stack.map((level, idx) => {
         return <li key={`${level}-${idx}`}>{`[${level.join(", ")}]`}</li>
@@ -209,7 +261,7 @@ export default class ArrayIndex extends React.Component {
       <div className="array-container">
         <div className="secondary-displays">
           <div className="left-right">
-            <div className="box-title-bottom">LEFT</div>
+            <div className="box-title-bottom">LEFT ARRAY</div>
             <div id="left-right-item">{left}</div>
           </div>
           <div className="stack">
@@ -219,12 +271,12 @@ export default class ArrayIndex extends React.Component {
             </div>
           </div>
           <div className="left-right">
-            <div className="box-title-bottom">RIGHT</div>
+            <div className="box-title-bottom">RIGHT ARRAY</div>
             <div id="left-right-item">{right}</div>
           </div>
         </div>
         <div className="pseudo-container">
-          {stackMessage}
+          <div className="stackMessage">{stackMessage}</div>
           <ul id="list">
             <li style={styleMid}>find the midpoint</li>
             <li>
@@ -291,6 +343,21 @@ export default class ArrayIndex extends React.Component {
         </div>
         <div className="array-main">
           {items}
+        </div>
+        <div 
+          className="user-controls" 
+          id="play-pause"
+          style={this.state.opacity}>
+          <div className="menu-card">
+            <div onClick={this.handler()}>
+              {this.state.pausePlay}
+            </div>
+          </div>
+          <div className="menu-card">
+            <div onClick={this.timerCallback.bind(this)}>
+              NEXT STEP
+            </div>
+          </div>
         </div>
       </div>
     )

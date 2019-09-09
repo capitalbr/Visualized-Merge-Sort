@@ -140,20 +140,15 @@ export default class Main extends React.Component {
     
     return(
       <div className="main">
-        <div className="user-controls">
-          <div className="menu-card" onClick={this.restartAnimation.bind(this)}>
-            <div className="menu-card-img">
-              <img src="https://media.giphy.com/media/Qvp6Z2fidQR34IcwQ5/giphy.gif"/>
-            </div>
-            <div className="menu-card-title">
-              <p>Reset</p>
-            </div>
-          </div>
-        </div>
+        
         <ArrayIndex arrays={arrays} stacks={stacks} lefts={lefts} rights={rights}
           messages={messages}
         />
-        
+        <div className="user-controls">
+          <div className="menu-card" onClick={this.restartAnimation.bind(this)}>
+              <div>NEW CALL</div>
+          </div>
+        </div>
         {/* <div style={{display: "flex"}}>
           <ul>{arrays}</ul>
           <ul>{left}</ul> 

@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   font-family: "Share Tech Mono", monospace;
-  margin-left: 90px;
 }
 .array-container .secondary-displays {
   display: flex;
@@ -15,9 +14,9 @@
   display: flex;
   justify-content: end;
   flex-direction: column-reverse;
-  width: 150px;
-  min-width: 150px;
-  max-width: 150px;
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
   margin: 50px;
   height: 300px;
   transform: translate(0px, 300px);
@@ -40,8 +39,56 @@
   width: 530px;
   height: 200px;
   transform: translate(0px, -110px);
-  border-bottom: 30px solid black;
-  border-radius: 7px;
+  border-bottom: 70px solid black;
+  border-radius: 15px;
+}
+.array-container .array-main #awaiting-input {
+  color: #AA33FF;
+  font-size: 63px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+.array-container .array-main #awaiting-input #a {
+  animation: float 6s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #w {
+  animation: float 3s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #a2 {
+  animation: float 4s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #i {
+  animation: float 5s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #t {
+  animation: float 3.7s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #i2 {
+  animation: float 4.5s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #n {
+  animation: float 3.5s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #g {
+  animation: float 5.5s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #i3 {
+  animation: float 3.5s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #n2 {
+  animation: float 4.2s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #p {
+  animation: float 2.9s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #u {
+  animation: float 5.7s ease-in-out infinite;
+}
+.array-container .array-main #awaiting-input #t2 {
+  animation: float 3.1s ease-in-out infinite;
 }
 .array-container .array-main .array-main-item {
   display: flex;
@@ -120,6 +167,12 @@
   flex-direction: column;
   align-items: center;
 }
+.array-container .pseudo-container .stackMessage {
+  margin-bottom: 15px;
+  font-weight: 1000;
+  font-size: 26px;
+  color: #AA33FF;
+}
 .array-container .pseudo-container #list {
   list-style: none;
 }
@@ -140,6 +193,14 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+#play-pause {
+  transform: translate(96px, -171px);
+  display: flex;
+  justify-content: space-between;
+  width: 325px;
+  height: 53px;
 }
 
 .animate-right {
@@ -210,19 +271,29 @@
     transform: scale(1);
   }
 }
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
 .main {
-  display: flex;
   width: 100%;
-  justify-content: center;
   font-family: "Share Tech Mono", monospace;
 }
 .main .user-controls {
+  margin: 0;
+  transform: translate(-168px, -224px);
+  font-size: 35px;
   display: flex;
-  margin-bottom: 100px;
-  align-items: center;
   justify-content: center;
-  width: 240px;
-  padding-left: 80px;
+  width: 100%;
+  z-index: 1;
 }
 
 .box-title-bottom {
@@ -234,44 +305,21 @@
 }
 
 .menu-card {
-  padding: 10px 35px;
-  margin-top: 7px;
-  display: flex;
-  justify-content: center;
-  margin: 30px auto;
-  width: 200px;
-  height: 30px;
-  border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
   cursor: pointer;
-  transition: 0.4s;
   align-items: center;
-  font-size: 20px;
-}
-.menu-card-img {
-  width: inherit;
-  width: 270px;
-  height: 50px;
-  border-radius: 40px;
-}
-.menu-card-img img {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
-  object-fit: cover;
-}
-.menu-card-title {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 22px;
-  height: 40px;
-  position: absolute;
   color: white;
 }
-.menu-card:hover {
+.menu-card div {
+  transition: 0.4s;
+  width: fit-content;
+  padding: 7px 12px 7px 12px;
+}
+.menu-card div:hover {
   transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25), -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+  color: #AA33FF;
+  font-weight: 1000;
+  border-radius: 100px;
+  background-color: white;
 }
 
 /*# sourceMappingURL=output.css.map */
