@@ -36,7 +36,7 @@ body, html {
   font-size: 20px;
 }
 .array-container .left-container .instructions {
-  margin-top: 60px;
+  margin-top: 25px;
   width: 370px;
 }
 .array-container .left-container .instructions h2 {
@@ -51,7 +51,7 @@ body, html {
   font-size: 20px;
 }
 .array-container .left-container .developer {
-  margin-top: 123px;
+  margin-top: 28px;
 }
 .array-container .left-container .developer .title {
   background: black;
@@ -84,6 +84,40 @@ body, html {
 }
 .array-container .left-container .developer #portfolio-link {
   transform: translate(0px, 50px);
+}
+.array-container .left-container .speed-controls {
+  margin-top: 24px;
+  color: white;
+  border: 2px solid red;
+}
+.array-container .left-container .speed-controls h2 {
+  display: flex;
+  justify-content: center;
+  background: red;
+  font-size: 24px;
+  margin: 0;
+}
+.array-container .left-container .speed-controls-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 277px;
+  padding-left: 11px;
+}
+.array-container .left-container .speed-controls-labels strong {
+  margin: 5px;
+}
+.array-container .left-container .speed-controls-labels #slow {
+  color: #5dc3d0;
+}
+.array-container .left-container .speed-controls-labels #medium {
+  color: #a25dd0;
+}
+.array-container .left-container .speed-controls-labels #fast {
+  color: #d05d5d;
+}
+.array-container .left-container .speed-controls-buttons {
+  display: flex;
+  justify-content: center;
 }
 .array-container .right-container {
   display: flex;
@@ -410,6 +444,40 @@ body, html {
   font-weight: 1000;
   border-radius: 100px;
   background-color: white;
+}
+
+.speed-button {
+  border: 2px solid white;
+  display: inline-block;
+  text-decoration: none;
+  width: 30px;
+  line-height: 120px;
+  font-size: 20px;
+  height: 30px;
+  transition: 0.2s;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+  margin: 0px 12px 12px 12px;
+}
+.speed-button-very-slow {
+  background: #5dc3d0;
+}
+.speed-button-slow {
+  background: #5d7cd0;
+}
+.speed-button-normal {
+  background: #a25dd0;
+}
+.speed-button-fast {
+  background: #d05d8d;
+}
+.speed-button-very-fast {
+  background: #d05d5d;
+}
+.speed-button:hover {
+  transform: scale(1.2, 1.2);
+  border-color: gold;
 }
 
 /*# sourceMappingURL=output.css.map */

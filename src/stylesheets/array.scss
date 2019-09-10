@@ -25,7 +25,7 @@
       }
     }
     .instructions{
-      margin-top: 60px;
+      margin-top: 25px;
       width: 370px;
       h2{
         font-size: 30px;
@@ -40,7 +40,7 @@
       }
     }
     .developer{
-      margin-top: 123px;
+      margin-top: 28px;
       .title{
         background: black;
         font-size: 23px;
@@ -72,6 +72,41 @@
       }
       #portfolio-link{
         transform: translate(0px, 50px);
+      }
+    }
+    .speed-controls{
+      margin-top: 24px;
+      color: white;
+      border: 2px solid red;
+      h2{
+        display: flex;
+        justify-content: center;
+        background: red;
+        font-size: 24px;
+        margin: 0;
+      }
+      &-labels{
+        display: flex;
+        justify-content: space-between;
+        width: 277px;
+        padding-left: 11px;
+        strong{
+          margin: 5px;
+        }
+        #slow{
+          color: #5dc3d0;
+        }
+        #medium{
+          color: #a25dd0;
+        }
+        #fast{
+          color: #d05d5d;
+        }
+       
+      }
+      &-buttons{
+        display: flex;
+        justify-content: center;
       }
     }
   }

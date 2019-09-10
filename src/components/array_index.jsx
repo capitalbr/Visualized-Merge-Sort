@@ -16,8 +16,10 @@ export default class ArrayIndex extends React.Component {
         pointerEvents: "none"
       }
     }
+    this.delaySet = 500;
+    this.delaySetEmphasis = 1500
     this.hold = true;
-    this.delay = 500;
+    this.delay = this.delaySet;
     this.animateGrow = "animate-grow"
     this.initializePausePlay = true;
     this.handler = () => {};
@@ -64,6 +66,32 @@ export default class ArrayIndex extends React.Component {
     clearInterval(this.interval);
     this.delay = delay;
     this.timerStart();
+  }
+
+  speedControl(speed){
+    switch (speed){
+      case "very fast":
+        this.delaySet = 125;
+        this.delaySetEmphasis = 375;
+        break;
+      case "fast":
+        this.delaySet = 250;
+        this.delaySetEmphasis = 750;
+        break;
+      case "slow":
+        this.delaySet = 1000;
+        this.delaySetEmphasis = 3000;
+        break;
+      case "very slow":
+        this.delaySet = 2000;
+        this.delaySetEmphasis = 6000;
+        break;
+      default:
+        this.delaySet = 500;
+        this.delaySetEmphasis = 1500;
+    }
+    this.intervalPause();
+    if (this.state.pausePlay === "PAUSE") this.timerStart();
   }
 
   intervalPause(){
@@ -139,18 +167,18 @@ export default class ArrayIndex extends React.Component {
       
       if (pStack && pStack.length < sLength){
           stackMessage = "RECURSIVE CALL MADE"
-          this.intervalSet(1500, false);
+          this.intervalSet(this.delaySetEmphasis, false);
         } else if (pStack && pStack.length > sLength) {
           stackMessage = "STACK LEVEL POPPED OFF"
-          this.intervalSet(1500, false);
+          this.intervalSet(this.delaySetEmphasis, false);
         } else if (pStack && pStack.length === sLength
             && pStack[0] !== this.state.stack[0]){
           stackMessage = "STACK LEVEL POPPED OFF AND NEW STACK CALL MADE"
-          this.intervalSet(1500, false);
+          this.intervalSet(this.delaySetEmphasis, false);
         } else {
           stackMessage = "CURRENT STACK IN PROGRESS"
-          if (this.delay !== 500){
-            this.intervalSet(500, false);
+          if (this.delay !== this.delaySet){
+            this.intervalSet(this.delaySet, false);
           }
         }
     }
@@ -304,6 +332,38 @@ export default class ArrayIndex extends React.Component {
               <li>
                 Stack levels are represented by the argument passed to them
               </li>
+            </div>
+          </div>
+          <div className="speed-controls">
+            <h2>
+              Speed Controls
+            </h2>
+            <div className="speed-controls-labels">
+              <strong id="slow">Slow</strong>
+              <strong id="medium">Medium</strong>
+              <strong id="fast">Fast</strong>
+            </div>
+            <div className="speed-controls-buttons">
+              <div 
+                className="speed-button speed-button-very-slow"
+                onClick={e => this.speedControl("very slow")}>
+              </div>
+              <div 
+                className="speed-button speed-button-slow"
+                onClick={e => this.speedControl("slow")}>
+              </div>
+              <div 
+                className="speed-button speed-button-normal"
+                onClick={e => this.speedControl()}>  
+              </div>
+              <div 
+                className="speed-button speed-button-fast"
+                onClick={e => this.speedControl("fast")}>
+              </div>
+              <div 
+                className="speed-button speed-button-very-fast"
+                onClick={e => this.speedControl("very fast")}>
+              </div>
             </div>
           </div>
           <div className="developer">
