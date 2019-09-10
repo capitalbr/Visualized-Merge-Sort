@@ -1,5 +1,5 @@
 # Visualized Merge Sort
-[See It Live](https://indie-dodo.herokuapp.com/#/landing)  
+[See It Live](https://visualizing-merge-sort.web.app/)  
 
 An animated version of the recursive merge sort algorithm built with JavaScript, React, Babel and Webpack.
 
