@@ -25,11 +25,26 @@ export default class ArrayIndex extends React.Component {
 
   componentDidMount(){
     this.timerStart();
+    this.addNewCallListener();
+  }
+
+  addNewCallListener(){
+    document.getElementById("new-call").addEventListener("click", () => {
+      // debugger
+      if (this.state.pausePlay === "START") this.togglePausePlay();
+    });
   }
 
   timerCallback(){
     if (this.props.arrays) {
       if (this.props.arrays.length === 0) {
+        this.initializePausePlay = true;
+        this.setState({
+          style: {
+            color: "gray",
+            pointerEvents: "none"
+          }
+        })
         // clearInterval(this.interval);
       }
       this.setState({

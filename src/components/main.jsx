@@ -144,7 +144,7 @@ export default class Main extends React.Component {
         <ArrayIndex arrays={arrays} stacks={stacks} lefts={lefts} rights={rights}
           messages={messages}
         />
-        <div className="user-controls">
+        <div id="new-call" className="user-controls">
           <div className="menu-card" onClick={this.restartAnimation.bind(this)}>
               <div>NEW CALL</div>
           </div>
