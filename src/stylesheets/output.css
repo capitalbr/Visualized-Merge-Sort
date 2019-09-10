@@ -479,5 +479,8 @@ body, html {
   transform: scale(1.2, 1.2);
   border-color: gold;
 }
+.speed-button:active {
+  border: 3px solid black;
+}
 
 /*# sourceMappingURL=output.css.map */

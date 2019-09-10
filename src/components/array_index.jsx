@@ -14,7 +14,12 @@ export default class ArrayIndex extends React.Component {
       style: {
         color: "gray",
         pointerEvents: "none"
-      }
+      },
+      speedVerySlow: {},
+      speedSlow: {},
+      speedNormal: {},
+      speedFast: {},
+      speedVeryFast: {}
     }
     this.delaySet = 500;
     this.delaySetEmphasis = 1500
@@ -58,6 +63,7 @@ export default class ArrayIndex extends React.Component {
         priorStack: this.state.stack
       })
     }
+    // this.speedStyleSetter();
   }
 
   intervalSet(delay = 500, initialSet = true){
@@ -119,6 +125,68 @@ export default class ArrayIndex extends React.Component {
       this.animateGrow = "animate-grow"
     }
   }
+
+  speedStyleSetter(){
+    switch (this.delay){
+      case 2000:
+        this.setState({
+          speedVerySlow: {
+            border: "3px solid black"
+          },
+          speedSlow: {},
+          speedNormal: {},
+          speedFast: {},
+          speedVeryFast: {}
+        })
+      break;
+      case 1000:
+        this.setState({
+          speedVerySlow: {},
+          speedSlow: {
+            border: "3px solid black"
+          },
+          speedNormal: {},
+          speedFast: {},
+          speedVeryFast: {}
+        })
+      break;
+      case 500:
+        this.setState({
+          speedVerySlow: {},
+          speedSlow: {},
+          speedNormal: {
+            border: "3px solid black"
+          },
+          speedFast: {},
+          speedVeryFast: {}
+        })
+      break;
+      case 250:
+        this.setState({
+          speedVerySlow: {},
+          speedSlow: {},
+          speedNormal: {},
+          speedFast: {
+            border: "3px solid black"
+          },
+          speedVeryFast: {}
+        })
+      break;
+      case 125:
+        this.setState({
+          speedVerySlow: {},
+          speedSlow: {},
+          speedNormal: {},
+          speedFast: {},
+          speedVeryFast: {
+            border: "3px solid black"
+          }
+        })
+      break;      
+    }
+
+  }
+
 
   render(){
     let stack, left, right, message;
@@ -345,22 +413,27 @@ export default class ArrayIndex extends React.Component {
             </div>
             <div className="speed-controls-buttons">
               <div 
+                style={this.state.speedVerySlow}
                 className="speed-button speed-button-very-slow"
                 onClick={e => this.speedControl("very slow")}>
               </div>
               <div 
+                style={this.state.speedSlow}
                 className="speed-button speed-button-slow"
                 onClick={e => this.speedControl("slow")}>
               </div>
               <div 
+                style={this.state.speedNormal}
                 className="speed-button speed-button-normal"
                 onClick={e => this.speedControl()}>  
               </div>
               <div 
+                style={this.state.speedFast}
                 className="speed-button speed-button-fast"
                 onClick={e => this.speedControl("fast")}>
               </div>
               <div 
+                style={this.state.speedVeryFast}
                 className="speed-button speed-button-very-fast"
                 onClick={e => this.speedControl("very fast")}>
               </div>
