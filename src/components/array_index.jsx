@@ -86,11 +86,11 @@ export default class ArrayIndex extends React.Component {
         break;
       case "slow":
         this.delaySet = 1000;
-        this.delaySetEmphasis = 3000;
+        this.delaySetEmphasis = 1500;
         break;
       case "very slow":
         this.delaySet = 2000;
-        this.delaySetEmphasis = 6000;
+        this.delaySetEmphasis = 2000;
         break;
       default:
         this.delaySet = 500;
