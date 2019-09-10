@@ -1,15 +1,15 @@
 .main{
-  width: 100%;
-  // justify-content: center;
+  background-color: black;
   font-family: 'Share Tech Mono', monospace;
+  min-width: 1584px;
   .user-controls{  
     margin: 0;
-    transform: translate(-168px, -224px);
+    transform: translate(85px, -224px);
     font-size: 35px;
     display: flex;
     justify-content: center;
-    // width: fit-content;
     width: 100%;
-    z-index: 1
+    z-index: 1;
+    color: white;
   }
 }

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
-body{
-  // background: rgba(254, 55, 230, 0.4);
-  // background: rgb(233, 233, 233);
+body, html{
+  height: 100%;
+  overflow: hidden;
+}
+#root{
+  height: 100%;
+  overflow: hidden;
 }

@@ -10,9 +10,10 @@ export default class ArrayIndex extends React.Component {
 
     this.state = {
       array: undefined,
-      pausePlay: "invisible",
-      opacity: {
-        opacity: "0"
+      pausePlay: "PAUSE",
+      style: {
+        color: "gray",
+        pointerEvents: "none"
       }
     }
     this.hold = true;
@@ -43,7 +44,7 @@ export default class ArrayIndex extends React.Component {
   }
 
   intervalSet(delay = 500, initialSet = true){
-    if (this.state.pausePlay === "PLAY") return;
+    if (this.state.pausePlay === "START") return;
     if (initialSet) return delay;
     clearInterval(this.interval);
     this.delay = delay;
@@ -61,10 +62,10 @@ export default class ArrayIndex extends React.Component {
 
   togglePausePlay(){
     this.interval ? this.intervalPause() : this.timerStart();
-    if (this.state.pausePlay === "PLAY") {
+    if (this.state.pausePlay === "START") {
       this.setState({ pausePlay: "PAUSE" });
     } else if (this.state.pausePlay === "PAUSE") {
-      this.setState({ pausePlay: "PLAY" });
+      this.setState({ pausePlay: "START" });
     }
   }
 
@@ -105,9 +106,7 @@ export default class ArrayIndex extends React.Component {
       if (this.initializePausePlay) {
         this.setState({ 
           pausePlay: "PAUSE",
-          opacity: {
-            opacity: 1
-          }
+          style: {}
         });
         this.initializePausePlay = false;
         this.handler = () => {
@@ -259,103 +258,148 @@ export default class ArrayIndex extends React.Component {
 
     return(
       <div className="array-container">
-        <div className="secondary-displays">
-          <div className="left-right">
-            <div className="box-title-bottom">LEFT ARRAY</div>
-            <div id="left-right-item">{left}</div>
+        <div className="left-container">
+          <div className="title-and-description">
+            <div className="title">
+             <strong>Visualizing</strong> <div>Merge Sort</div>
+            </div>
+            <div className="description">
+              An animated version of the recursive merge sort algorithm 
+              built with JavaScript, React, Webpack, Babel, and Sass.
+            </div>
           </div>
-          <div className="stack">
+          <div className="instructions">
+            <h2>Instructions</h2>
             <div>
-              <ul>{stack}</ul>
-              <div className="box-title-bottom">STACK</div>
+              <li>New Call = start/reset</li>
+              <li>After pressing New Call 2 new buttons appear</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;
+                1) Start/Pause
+              </li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;
+                2) Next Step = go at 
+                  your own 
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  pace while paused
+              </li>
+              <li>Red Bar = Current midpoint</li>
+              <li>Pseudo code highlighting shows whats 
+                happening at each step
+              </li>
+              <li>
+                Stack levels are represented by the argument passed to them
+              </li>
             </div>
           </div>
-          <div className="left-right">
-            <div className="box-title-bottom">RIGHT ARRAY</div>
-            <div id="left-right-item">{right}</div>
+          <div className="developer">
+            <div className="title">
+              Developer Info
+            </div>
+            <div id="name">Bradley Barnes</div>
+            <div className="links">GitHub</div>
+            <div id="linkedin-link" className="links">Linkedin</div>
+            <div id="portfolio-link" className="links">Portfolio</div>
           </div>
         </div>
-        <div className="pseudo-container">
-          <div className="stackMessage">{stackMessage}</div>
-          <ul id="list">
-            <li style={styleMid}>find the midpoint</li>
-            <li>
-              <div style={styleMergeLeft}>
-                for i = 0 to midpoint, leftArray.push(array[i])
+        <div className="right-container">
+          <div className="secondary-displays">
+            <div className="left-right">
+              <div className="box-title-bottom">LEFT ARRAY</div>
+              <div id="left-right-item">{left}</div>
+            </div>
+            <div className="stack">
+              <div>
+                <ul>{stack}</ul>
+                <div className="box-title-bottom">STACK</div>
               </div>
-              <div 
-                style={styleMergeLeftStep} 
-                className='padding'
-                >
-                mergeSort(
-                <strong className={classMergeLeftStep}>
-                  leftArray
-                </strong> 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;)
-              </div>
-            </li>
-            <li>
-              <div style={styleMergeRight}>
-                for i = 0 to midpoint, leftArray.push(array[i])
-              </div>
-              <div 
-                style={styleMergeRightStep}
-                className="padding">
-                mergeSort(
-                <strong className={classMergeRightStep}>
-                  rightArray
-                </strong>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;)
-              </div>
-            </li>
-            <li style={styleLRSorted}>
-              sorted left/right arrays have returned and must 
-              <br/>be merged/sorted
-            </li>
-            <li>
-              <div style={styleMerging}>
-                if leftArray[0] is less than rightArray[0]
-              </div>
-              <div 
-                style={styleMergingLeft}
-                className='padding'>
-                <strong className={classMergingLeft}>push leftArray[0]</strong>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;into mergedArray
-              </div>
-              <div 
-                style={styleMergingRight}
-                className='padding'>
-                else&nbsp;<strong className={classMergingRight}>push rightArray[0]</strong>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; into mergedArray
-              </div>
-            </li>
-            <li style={styleMerged}>
-              Merge any already sorted items remaining
-            </li>
-            {/* {message} */}
-          </ul>
-        </div>
-        <div className="array-main">
-          {items}
-        </div>
-        <div 
-          className="user-controls" 
-          id="play-pause"
-          style={this.state.opacity}>
-          <div className="menu-card">
-            <div onClick={this.handler()}>
-              {this.state.pausePlay}
+            </div>
+            <div className="left-right">
+              <div className="box-title-bottom">RIGHT ARRAY</div>
+              <div id="left-right-item">{right}</div>
             </div>
           </div>
-          <div className="menu-card">
-            <div onClick={this.timerCallback.bind(this)}>
-              NEXT STEP
+          <div className="pseudo-container">
+            <div className="stackMessage">{stackMessage}</div>
+            <ul id="list">
+              <li style={styleMid}>find the midpoint</li>
+              <li>
+                <div style={styleMergeLeft}>
+                  for i = 0 to midpoint, leftArray.push(array[i])
+                </div>
+                <div 
+                  style={styleMergeLeftStep} 
+                  className='padding'
+                  >
+                  mergeSort(
+                  <strong className={classMergeLeftStep}>
+                    leftArray
+                  </strong> 
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;)
+                </div>
+              </li>
+              <li>
+                <div style={styleMergeRight}>
+                  for i = 0 to midpoint, leftArray.push(array[i])
+                </div>
+                <div 
+                  style={styleMergeRightStep}
+                  className="padding">
+                  mergeSort(
+                  <strong className={classMergeRightStep}>
+                    rightArray
+                  </strong>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;)
+                </div>
+              </li>
+              <li style={styleLRSorted}>
+                sorted left/right arrays have returned and must 
+                <br/>be merged/sorted
+              </li>
+              <li>
+                <div style={styleMerging}>
+                  if leftArray[0] is less than rightArray[0]
+                </div>
+                <div 
+                  style={styleMergingLeft}
+                  className='padding'>
+                  <strong className={classMergingLeft}>push leftArray[0]</strong>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;into mergedArray
+                </div>
+                <div 
+                  style={styleMergingRight}
+                  className='padding'>
+                  else&nbsp;<strong className={classMergingRight}>push rightArray[0]</strong>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; into mergedArray
+                </div>
+              </li>
+              <li style={styleMerged}>
+                Merge any already sorted items remaining
+              </li>
+              {/* {message} */}
+            </ul>
+          </div>
+          <div className="array-main">
+            {items}
+          </div>
+          <div 
+            className="user-controls" 
+            id="play-pause"
+            style={this.state.style}>
+            <div className="menu-card">
+              <div onClick={this.handler()}>
+                {this.state.pausePlay}
+              </div>
+            </div>
+            <div className="menu-card">
+              <div onClick={this.timerCallback.bind(this)}>
+                NEXT STEP
+              </div>
             </div>
           </div>
         </div>

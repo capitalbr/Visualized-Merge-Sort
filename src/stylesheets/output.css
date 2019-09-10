@@ -1,16 +1,105 @@
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap");
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
 .array-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+.array-container .left-container {
+  width: 300px;
+  color: black;
+  padding: 50px 116px 0px 85px;
+}
+.array-container .left-container .title-and-description .title {
+  font-size: 45px;
+}
+.array-container .left-container .title-and-description .title strong {
+  background: linear-gradient(to left, #5A24B4, #FE37EA);
+  border-radius: 30px;
+  padding: 7px;
+  color: greenyellow;
+}
+.array-container .left-container .title-and-description .title div {
+  margin-top: 7px;
+}
+.array-container .left-container .title-and-description .description {
+  margin-top: 9px;
+  font-size: 20px;
+}
+.array-container .left-container .instructions {
+  margin-top: 60px;
+  width: 370px;
+}
+.array-container .left-container .instructions h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.array-container .left-container .instructions div {
+  list-style: none;
+}
+.array-container .left-container .instructions div li {
+  margin-bottom: 7px;
+  font-size: 20px;
+}
+.array-container .left-container .developer {
+  margin-top: 123px;
+}
+.array-container .left-container .developer .title {
+  background: black;
+  font-size: 23px;
+  margin-bottom: 12px;
+  color: white;
+  border-radius: 7px;
+  width: fit-content;
+  padding: 7px;
+}
+.array-container .left-container .developer #name {
+  font-size: 20px;
+  border-bottom: 2px solid black;
+  width: fit-content;
+}
+.array-container .left-container .developer .links {
+  transition: 0.2s;
+  font-size: 18px;
+  margin: 7px;
+  position: absolute;
+  z-index: 10;
+}
+.array-container .left-container .developer .links:hover {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+.array-container .left-container .developer #linkedin-link {
+  transform: translate(0px, 25px);
+}
+.array-container .left-container .developer #portfolio-link {
+  transform: translate(0px, 50px);
+}
+.array-container .right-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Share Tech Mono", monospace;
+  border-left: solid;
+  width: 100%;
+  min-width: 1016px;
 }
-.array-container .secondary-displays {
+.array-container .right-container .secondary-displays {
   display: flex;
   width: 1000px;
   justify-content: center;
 }
-.array-container .secondary-displays .left-right {
+.array-container .right-container .secondary-displays .left-right {
   display: flex;
   justify-content: end;
   flex-direction: column-reverse;
@@ -21,7 +110,7 @@
   height: 300px;
   transform: translate(0px, 300px);
 }
-.array-container .secondary-displays .left-right .array-index-item {
+.array-container .right-container .secondary-displays .left-right .array-index-item {
   margin: 3px;
   display: flex;
   flex-direction: column;
@@ -31,10 +120,10 @@
   min-width: 22px;
   background: linear-gradient(to left, #5A24B4, #FE37EA);
 }
-.array-container .secondary-displays .left-right .array-index-item div {
+.array-container .right-container .secondary-displays .left-right .array-index-item div {
   margin: 4px;
 }
-.array-container .array-main {
+.array-container .right-container .array-main {
   display: flex;
   width: 530px;
   height: 200px;
@@ -42,7 +131,7 @@
   border-bottom: 70px solid black;
   border-radius: 15px;
 }
-.array-container .array-main #awaiting-input {
+.array-container .right-container .array-main #awaiting-input {
   color: #AA33FF;
   font-size: 63px;
   padding-top: 30px;
@@ -51,51 +140,51 @@
   align-items: flex-end;
   width: 100%;
 }
-.array-container .array-main #awaiting-input #a {
+.array-container .right-container .array-main #awaiting-input #a {
   animation: float 6s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #w {
+.array-container .right-container .array-main #awaiting-input #w {
   animation: float 3s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #a2 {
+.array-container .right-container .array-main #awaiting-input #a2 {
   animation: float 4s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #i {
+.array-container .right-container .array-main #awaiting-input #i {
   animation: float 5s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #t {
+.array-container .right-container .array-main #awaiting-input #t {
   animation: float 3.7s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #i2 {
+.array-container .right-container .array-main #awaiting-input #i2 {
   animation: float 4.5s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #n {
+.array-container .right-container .array-main #awaiting-input #n {
   animation: float 3.5s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #g {
+.array-container .right-container .array-main #awaiting-input #g {
   animation: float 5.5s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #i3 {
+.array-container .right-container .array-main #awaiting-input #i3 {
   animation: float 3.5s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #n2 {
+.array-container .right-container .array-main #awaiting-input #n2 {
   animation: float 4.2s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #p {
+.array-container .right-container .array-main #awaiting-input #p {
   animation: float 2.9s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #u {
+.array-container .right-container .array-main #awaiting-input #u {
   animation: float 5.7s ease-in-out infinite;
 }
-.array-container .array-main #awaiting-input #t2 {
+.array-container .right-container .array-main #awaiting-input #t2 {
   animation: float 3.1s ease-in-out infinite;
 }
-.array-container .array-main .array-main-item {
+.array-container .right-container .array-main .array-main-item {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.array-container .array-main .array-main-item .array-index-item {
+.array-container .right-container .array-main .array-main-item .array-index-item {
   margin-left: 4px;
   display: flex;
   flex-direction: column;
@@ -104,40 +193,40 @@
   width: 30px;
   background: linear-gradient(to left, #5A24B4, #AA33FF);
 }
-.array-container .array-main .array-main-item .array-index-item div {
+.array-container .right-container .array-main .array-main-item .array-index-item div {
   margin: 5px;
 }
-.array-container .array-main .array-main-item .midpoint {
+.array-container .right-container .array-main .array-main-item .midpoint {
   background: linear-gradient(to left, #b42424, #ff5f5f);
 }
-.array-container .array-main .idx-1 {
+.array-container .right-container .array-main .idx-1 {
   transform: translate(20px);
 }
-.array-container .array-main .idx-2 {
+.array-container .right-container .array-main .idx-2 {
   transform: translate(40px);
 }
-.array-container .array-main .idx-3 {
+.array-container .right-container .array-main .idx-3 {
   transform: translate(60px);
 }
-.array-container .array-main .idx-4 {
+.array-container .right-container .array-main .idx-4 {
   transform: translate(80px);
 }
-.array-container .array-main .idx-5 {
+.array-container .right-container .array-main .idx-5 {
   transform: translate(100px);
 }
-.array-container .array-main .idx-6 {
+.array-container .right-container .array-main .idx-6 {
   transform: translate(120px);
 }
-.array-container .array-main .idx-7 {
+.array-container .right-container .array-main .idx-7 {
   transform: translate(140px);
 }
-.array-container .array-main .idx-8 {
+.array-container .right-container .array-main .idx-8 {
   transform: translate(160px);
 }
-.array-container .array-main .idx-9 {
+.array-container .right-container .array-main .idx-9 {
   transform: translate(180px);
 }
-.array-container .stack {
+.array-container .right-container .stack {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,7 +234,7 @@
   margin-left: 75px;
   margin-right: 75px;
 }
-.array-container .stack ul {
+.array-container .right-container .stack ul {
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -158,33 +247,33 @@
   width: 350px;
   margin: 0;
 }
-.array-container .stack ul li {
+.array-container .right-container .stack ul li {
   margin: 4px;
 }
-.array-container .pseudo-container {
+.array-container .right-container .pseudo-container {
   transform: translate(0px, -110px);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.array-container .pseudo-container .stackMessage {
+.array-container .right-container .pseudo-container .stackMessage {
   margin-bottom: 15px;
   font-weight: 1000;
   font-size: 26px;
   color: #AA33FF;
 }
-.array-container .pseudo-container #list {
+.array-container .right-container .pseudo-container #list {
   list-style: none;
 }
-.array-container .pseudo-container #list li {
+.array-container .right-container .pseudo-container #list li {
   margin-bottom: 10px;
 }
-.array-container .pseudo-container #list li .padding {
+.array-container .right-container .pseudo-container #list li .padding {
   margin-left: 2.5em;
   margin-top: 0.3em;
   width: fit-content;
 }
-.array-container .pseudo-container #list li .padding strong {
+.array-container .right-container .pseudo-container #list li .padding strong {
   position: absolute;
 }
 
@@ -283,17 +372,19 @@
   }
 }
 .main {
-  width: 100%;
+  background-color: black;
   font-family: "Share Tech Mono", monospace;
+  min-width: 1584px;
 }
 .main .user-controls {
   margin: 0;
-  transform: translate(-168px, -224px);
+  transform: translate(85px, -224px);
   font-size: 35px;
   display: flex;
   justify-content: center;
   width: 100%;
   z-index: 1;
+  color: white;
 }
 
 .box-title-bottom {
@@ -307,7 +398,6 @@
 .menu-card {
   cursor: pointer;
   align-items: center;
-  color: white;
 }
 .menu-card div {
   transition: 0.4s;

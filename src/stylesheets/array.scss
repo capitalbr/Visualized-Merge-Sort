@@ -1,186 +1,267 @@
 .array-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Share Tech Mono', monospace;
-  .secondary-displays{
+  justify-content: space-between;
+  background-color: white;
+  .left-container{
+    width: 300px;
+    color: black;
+    padding: 50px 116px 0px 85px;
+    .title-and-description{
+      .title{
+        font-size: 45px;
+        strong{
+          background: linear-gradient(to left, #5A24B4, #FE37EA);
+          border-radius: 30px;
+          padding: 7px;
+          color: greenyellow;
+        }
+        div{
+          margin-top: 7px;
+        }
+      }
+      .description{
+        margin-top: 9px;
+        font-size: 20px;
+      }
+    }
+    .instructions{
+      margin-top: 60px;
+      width: 370px;
+      h2{
+        font-size: 30px;
+        margin-bottom: 12px;
+      }
+      div{
+        list-style: none;
+        li{
+          margin-bottom: 7px;
+          font-size: 20px;
+        }
+      }
+    }
+    .developer{
+      margin-top: 123px;
+      .title{
+        background: black;
+        font-size: 23px;
+        margin-bottom: 12px;
+        color: white;
+        border-radius: 7px;
+        width: fit-content;
+        padding: 7px;
+      }
+      #name{
+        font-size: 20px;
+        border-bottom: 2px solid black;
+        width: fit-content;
+      }
+      .links{
+        transition: 0.2s;
+        font-size: 18px;
+        margin: 7px;
+        position: absolute;
+        z-index: 10;
+        &:hover{
+          color: red;
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      #linkedin-link{
+        transform: translate(0px, 25px);
+      }
+      #portfolio-link{
+        transform: translate(0px, 50px);
+      }
+    }
+  }
+  .right-container{
     display: flex;
-    width: 1000px;
-    justify-content: center;
-    .left-right{
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+    border-left: solid;
+    width: 100%;
+    min-width: 1016px;
+    .secondary-displays{
       display: flex;
-      justify-content: end;
-      flex-direction: column-reverse;
-      width: 250px;
-      min-width: 250px;
-      max-width: 250px;
-      margin: 50px;
-      height: 300px;
-      transform: translate(0px, 300px);
-      .array-index-item{
-        margin: 3px;
+      width: 1000px;
+      justify-content: center;
+      .left-right{
+        display: flex;
+        justify-content: end;
+        flex-direction: column-reverse;
+        width: 250px;
+        min-width: 250px;
+        max-width: 250px;
+        margin: 50px;
+        height: 300px;
+        transform: translate(0px, 300px);
+        .array-index-item{
+          margin: 3px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          width: 30px;
+          min-width: 22px;
+          background: linear-gradient(to left, #5A24B4, #FE37EA);
+          div{
+            margin: 4px;
+          }
+        }
+      }
+    }
+    .array-main{
+      display: flex;
+      width: 530px;
+      height: 200px;
+      transform: translate(0px, -110px);
+      border-bottom: 70px solid black;
+      border-radius: 15px;
+      #awaiting-input{
+        color: #AA33FF;
+        font-size: 63px;
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        #a{
+          animation: float 6s ease-in-out infinite;
+        }
+        #w{
+          animation: float 3s ease-in-out infinite;        
+        }
+        #a2{
+          animation: float 4s ease-in-out infinite;
+        }
+        #i{
+          animation: float 5s ease-in-out infinite;
+        }
+        #t{
+          animation: float 3.7s ease-in-out infinite;
+        }
+        #i2{
+          animation: float 4.5s ease-in-out infinite;
+        }
+        #n{
+          animation: float 3.5s ease-in-out infinite;
+        }
+        #g{
+          animation: float 5.5s ease-in-out infinite;
+        }
+        #i3{
+          animation: float 3.5s ease-in-out infinite;
+        }
+        #n2{
+          animation: float 4.2s ease-in-out infinite;
+        }
+        #p{
+          animation: float 2.9s ease-in-out infinite;
+        }
+        #u{
+          animation: float 5.7s ease-in-out infinite;
+        }
+        #t2{
+          animation: float 3.1s ease-in-out infinite;
+        }
+      }
+      .array-main-item{
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        .array-index-item{
+          margin-left: 4px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          width: 30px;
+          background: linear-gradient(to left, #5A24B4, #AA33FF);
+          div{
+            margin: 5px;
+          }
+        }
+        .midpoint{
+          background: linear-gradient(to left, rgb(180, 36, 36), rgb(255, 95, 95));
+        }
+      }
+      .idx-1{
+        transform: translate(20px)
+      }
+      .idx-2{
+        transform: translate(40px)
+      }
+      .idx-3{
+        transform: translate(60px)
+      }
+      .idx-4{
+        transform: translate(80px)
+      }
+      .idx-5{
+        transform: translate(100px)
+      }
+      .idx-6{
+        transform: translate(120px)
+      }
+      .idx-7{
+        transform: translate(140px)
+      }
+      .idx-8{
+        transform: translate(160px)
+      }
+      .idx-9{
+        transform: translate(180px)
+      }
+    }
+    .stack{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 50px;
+      margin-left: 75px;
+      margin-right: 75px;
+      ul{
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        list-style-type: none;
+        height: 200px;
+        width: fit-content;
+        padding: 0;
         align-items: center;
-        width: 30px;
-        min-width: 22px;
-        background: linear-gradient(to left, #5A24B4, #FE37EA);
-        div{
+        width: 350px;
+        margin: 0;
+        li{
           margin: 4px;
         }
       }
     }
-  }
-  .array-main{
-    display: flex;
-    width: 530px;
-    height: 200px;
-    transform: translate(0px, -110px);
-    border-bottom: 70px solid black;
-    border-radius: 15px;
-    #awaiting-input{
-      color: #AA33FF;
-      font-size: 63px;
-      padding-top: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      width: 100%;
-      #a{
-        animation: float 6s ease-in-out infinite;
-      }
-      #w{
-        animation: float 3s ease-in-out infinite;        
-      }
-      #a2{
-        animation: float 4s ease-in-out infinite;
-      }
-      #i{
-        animation: float 5s ease-in-out infinite;
-      }
-      #t{
-        animation: float 3.7s ease-in-out infinite;
-      }
-      #i2{
-        animation: float 4.5s ease-in-out infinite;
-      }
-      #n{
-        animation: float 3.5s ease-in-out infinite;
-      }
-      #g{
-        animation: float 5.5s ease-in-out infinite;
-      }
-      #i3{
-        animation: float 3.5s ease-in-out infinite;
-      }
-      #n2{
-        animation: float 4.2s ease-in-out infinite;
-      }
-      #p{
-        animation: float 2.9s ease-in-out infinite;
-      }
-      #u{
-        animation: float 5.7s ease-in-out infinite;
-      }
-      #t2{
-        animation: float 3.1s ease-in-out infinite;
-      }
-    }
-    .array-main-item{
+    .pseudo-container{
+      transform: translate(0px, -110px);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      .array-index-item{
-        margin-left: 4px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        width: 30px;
-        background: linear-gradient(to left, #5A24B4, #AA33FF);
-        div{
-          margin: 5px;
-        }
-      }
-      .midpoint{
-        background: linear-gradient(to left, rgb(180, 36, 36), rgb(255, 95, 95));
-      }
-    }
-    .idx-1{
-      transform: translate(20px)
-    }
-    .idx-2{
-      transform: translate(40px)
-    }
-    .idx-3{
-      transform: translate(60px)
-    }
-    .idx-4{
-      transform: translate(80px)
-    }
-    .idx-5{
-      transform: translate(100px)
-    }
-    .idx-6{
-      transform: translate(120px)
-    }
-    .idx-7{
-      transform: translate(140px)
-    }
-    .idx-8{
-      transform: translate(160px)
-    }
-    .idx-9{
-      transform: translate(180px)
-    }
-  }
-  .stack{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-    margin-left: 75px;
-    margin-right: 75px;
-    ul{
-      border: 2px solid black;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      list-style-type: none;
-      height: 200px;
-      width: fit-content;
-      padding: 0;
       align-items: center;
-      width: 350px;
-      margin: 0;
-      li{
-        margin: 4px;
+      .stackMessage{
+        margin-bottom: 15px;
+        font-weight: 1000;
+        font-size: 26px;
+        color: #AA33FF;
       }
-    }
-  }
-  .pseudo-container{
-    transform: translate(0px, -110px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .stackMessage{
-      margin-bottom: 15px;
-      font-weight: 1000;
-      font-size: 26px;
-      color: #AA33FF;
-    }
-    // html targeting is buggy so must do this
-    #list{
-      list-style: none;
-      li{
-        margin-bottom: 10px;
-        .padding{
-          margin-left: 2.5em;
-          margin-top: .3em;
-          width: fit-content;
-          strong{
-            position: absolute;
+      // html targeting is buggy so must do this
+      #list{
+        list-style: none;
+        li{
+          margin-bottom: 10px;
+          .padding{
+            margin-left: 2.5em;
+            margin-top: .3em;
+            width: fit-content;
+            strong{
+              position: absolute;
+            }
           }
         }
       }
