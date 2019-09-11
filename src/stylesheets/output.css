@@ -11,16 +11,41 @@ body, html {
 
 .array-container {
   display: flex;
-  justify-content: space-between;
   background-color: white;
 }
 .array-container .left-container {
   width: 300px;
   color: black;
-  padding: 50px 116px 0px 85px;
 }
-.array-container .left-container .title-and-description .title {
-  font-size: 45px;
+@media only screen and (min-width: 1280px) {
+  .array-container .left-container {
+    padding: 23px 60px 0px 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .left-container {
+    padding: 23px 92px 0px 31px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .array-container .left-container {
+    padding: 50px 116px 0px 85px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .left-container .title-and-description .title {
+    font-size: 38.5px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .left-container .title-and-description .title {
+    font-size: 41px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .array-container .left-container .title-and-description .title {
+    font-size: 45px;
+  }
 }
 .array-container .left-container .title-and-description .title strong {
   background: linear-gradient(to left, #5A24B4, #FE37EA);
@@ -33,22 +58,68 @@ body, html {
 }
 .array-container .left-container .title-and-description .description {
   margin-top: 9px;
-  font-size: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .left-container .title-and-description .description {
+    overflow: hidden;
+    height: 35px;
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .left-container .title-and-description .description {
+    overflow: initial;
+    height: inherit;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .array-container .left-container .title-and-description .description {
+    font-size: 20px;
+  }
 }
 .array-container .left-container .instructions {
   margin-top: 25px;
   width: 370px;
 }
 .array-container .left-container .instructions h2 {
-  font-size: 30px;
   margin-bottom: 12px;
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .left-container .instructions h2 {
+    font-size: 25px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .left-container .instructions h2 {
+    font-size: 30px;
+  }
 }
 .array-container .left-container .instructions div {
   list-style: none;
 }
+@media only screen and (min-width: 1280px) {
+  .array-container .left-container .instructions div {
+    transform: translate(-17px, 0px);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .left-container .instructions div {
+    transform: translate(0px, 0px);
+  }
+}
 .array-container .left-container .instructions div li {
   margin-bottom: 7px;
   font-size: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .left-container .instructions div li {
+    transform: scale(0.9);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .left-container .instructions div li {
+    transform: scale(1);
+  }
 }
 .array-container .left-container .developer {
   margin-top: 28px;
@@ -125,24 +196,70 @@ body, html {
   align-items: center;
   font-family: "Share Tech Mono", monospace;
   border-left: solid;
-  width: 100%;
   min-width: 1016px;
 }
+@media only screen and (min-width: 1280px) {
+  .array-container .right-container {
+    width: 890px;
+    min-width: 890px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .right-container {
+    width: 1000px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .array-container .right-container {
+    width: 100%;
+  }
+}
 .array-container .right-container .secondary-displays {
+  border: 1px solid black;
   display: flex;
-  width: 1000px;
   justify-content: center;
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .right-container .secondary-displays {
+    width: 840px;
+    height: 288px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .right-container .secondary-displays {
+    width: 840px;
+    height: 368px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .array-container .right-container .secondary-displays {
+    width: 1000px;
+    height: inherit;
+  }
 }
 .array-container .right-container .secondary-displays .left-right {
   display: flex;
   justify-content: end;
   flex-direction: column-reverse;
-  width: 250px;
-  min-width: 250px;
-  max-width: 250px;
   margin: 50px;
   height: 300px;
   transform: translate(0px, 300px);
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .right-container .secondary-displays .left-right {
+    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
+    color: blue;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .array-container .right-container .secondary-displays .left-right {
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    color: green;
+  }
 }
 .array-container .right-container .secondary-displays .left-right .array-index-item {
   margin: 3px;
@@ -161,9 +278,18 @@ body, html {
   display: flex;
   width: 530px;
   height: 200px;
-  transform: translate(0px, -110px);
   border-bottom: 70px solid black;
   border-radius: 15px;
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .right-container .array-main {
+    transform: translate(0px, -156px);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .right-container .array-main {
+    transform: translate(0px, -110px);
+  }
 }
 .array-container .right-container .array-main #awaiting-input {
   color: #AA33FF;
@@ -264,9 +390,18 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
-  margin-left: 75px;
-  margin-right: 75px;
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .right-container .stack {
+    margin: 0px 10px 0px 10px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .array-container .right-container .stack {
+    margin-bottom: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
+  }
 }
 .array-container .right-container .stack ul {
   border: 2px solid black;
@@ -274,30 +409,71 @@ body, html {
   flex-direction: column;
   justify-content: flex-end;
   list-style-type: none;
-  height: 200px;
   width: fit-content;
   padding: 0;
   align-items: center;
   width: 350px;
   margin: 0;
 }
+@media only screen and (min-width: 1280px) {
+  .array-container .right-container .stack ul {
+    height: 105px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .right-container .stack ul {
+    height: 200px;
+  }
+}
 .array-container .right-container .stack ul li {
   margin: 4px;
 }
 .array-container .right-container .pseudo-container {
-  transform: translate(0px, -110px);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+@media only screen and (min-width: 1280px) {
+  .array-container .right-container .pseudo-container {
+    transform: translate(0px, -149px);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .right-container .pseudo-container {
+    transform: translate(0px, -110px);
+  }
+}
 .array-container .right-container .pseudo-container .stackMessage {
-  margin-bottom: 15px;
   font-weight: 1000;
-  font-size: 26px;
   color: #AA33FF;
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .right-container .pseudo-container .stackMessage {
+    font-size: 24px;
+    margin-top: 15px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .array-container .right-container .pseudo-container .stackMessage {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
 }
 .array-container .right-container .pseudo-container #list {
   list-style: none;
+  padding: 0;
+}
+@media only screen and (min-width: 1280px) {
+  .array-container .right-container .pseudo-container #list {
+    margin-block-start: 0.3em;
+    margin-block-end: 0;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .array-container .right-container .pseudo-container #list {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
 }
 .array-container .right-container .pseudo-container #list li {
   margin-bottom: 10px;
@@ -425,8 +601,19 @@ body, html {
   display: flex;
   justify-content: center;
   padding: 10px 35px;
-  margin-top: 7px;
-  font-size: 28px;
+}
+@media only screen and (min-width: 1280px) {
+  .box-title-bottom {
+    margin-top: 0px;
+    font-size: 26px;
+    padding-top: 5px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .box-title-bottom {
+    margin-top: 7px;
+    font-size: 28px;
+  }
 }
 
 .menu-card {
