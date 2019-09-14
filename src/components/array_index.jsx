@@ -402,40 +402,42 @@ export default class ArrayIndex extends React.Component {
               </li>
             </div>
           </div>
-          <div className="speed-controls">
-            <h2>
-              Speed Controls
-            </h2>
-            <div className="speed-controls-labels">
-              <strong id="slow">Slow</strong>
-              <strong id="medium">Medium</strong>
-              <strong id="fast">Fast</strong>
-            </div>
-            <div className="speed-controls-buttons">
-              <div 
-                style={this.state.speedVerySlow}
-                className="speed-button speed-button-very-slow"
-                onClick={e => this.speedControl("very slow")}>
+          <div className="speed-controls-container">
+            <div className="speed-controls">
+              <h2>
+                Speed Controls
+              </h2>
+              <div className="speed-controls-labels">
+                <strong id="slow">Slow</strong>
+                <strong id="medium">Medium</strong>
+                <strong id="fast">Fast</strong>
               </div>
-              <div 
-                style={this.state.speedSlow}
-                className="speed-button speed-button-slow"
-                onClick={e => this.speedControl("slow")}>
-              </div>
-              <div 
-                style={this.state.speedNormal}
-                className="speed-button speed-button-normal"
-                onClick={e => this.speedControl()}>  
-              </div>
-              <div 
-                style={this.state.speedFast}
-                className="speed-button speed-button-fast"
-                onClick={e => this.speedControl("fast")}>
-              </div>
-              <div 
-                style={this.state.speedVeryFast}
-                className="speed-button speed-button-very-fast"
-                onClick={e => this.speedControl("very fast")}>
+              <div className="speed-controls-buttons">
+                <div 
+                  style={this.state.speedVerySlow}
+                  className="speed-button speed-button-very-slow"
+                  onClick={e => this.speedControl("very slow")}>
+                </div>
+                <div 
+                  style={this.state.speedSlow}
+                  className="speed-button speed-button-slow"
+                  onClick={e => this.speedControl("slow")}>
+                </div>
+                <div 
+                  style={this.state.speedNormal}
+                  className="speed-button speed-button-normal"
+                  onClick={e => this.speedControl()}>  
+                </div>
+                <div 
+                  style={this.state.speedFast}
+                  className="speed-button speed-button-fast"
+                  onClick={e => this.speedControl("fast")}>
+                </div>
+                <div 
+                  style={this.state.speedVeryFast}
+                  className="speed-button speed-button-very-fast"
+                  onClick={e => this.speedControl("very fast")}>
+                </div>
               </div>
             </div>
           </div>
