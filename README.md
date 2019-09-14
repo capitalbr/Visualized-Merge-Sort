@@ -1,4 +1,4 @@
-# Visualized Merge Sort
+# Visualizing Merge Sort
 [See It Live](https://visualizing-merge-sort.web.app/)  
 
 An animated version of the recursive merge sort algorithm built with JavaScript, React, Firebase, Babel and Webpack.
