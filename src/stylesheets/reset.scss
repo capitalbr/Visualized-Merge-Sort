@@ -1,23 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
 body, html{
   height: 100%;
-  @media only screen and (min-width: 0px){ 
-    overflow: initial; 
-    overflow-x: hidden;
-  }
-  @media only screen and (min-width: 1600px){
-    overflow: hidden;
-  }
+  // @media only screen and (min-width: 0px){ 
+  //   overflow: initial; 
+  //   overflow-x: hidden;
+  // }
+  // @media only screen and (min-width: 1600px){
+  //   overflow: hidden;
+  // }
 }
 #root{
   height: 100%;
-  @media only screen and (min-width: 0px){ 
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-  @media only screen and (min-width: 1600px){
-    overflow-y: initial;
-    overflow-x: initial;
-  }
-  // overflow: hidden;
+  // @media only screen and (min-width: 0px){ 
+  //   overflow-y: hidden;
+  //   overflow-x: hidden;
+  // }
+  // @media only screen and (min-width: 1600px){
+  //   overflow-y: initial;
+  //   overflow-x: initial;
+  // }
 }
