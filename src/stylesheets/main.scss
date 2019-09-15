@@ -2,14 +2,26 @@
   background-color: black;
   font-family: 'Share Tech Mono', monospace;
   min-width: 1584px;
+  height: inherit;
   .user-controls{  
     margin: 0;
-    transform: translate(85px, -224px);
     font-size: 35px;
     display: flex;
     justify-content: center;
     width: 100%;
     z-index: 1;
     color: white;
+    @media only screen and (min-width: 0px){
+      transform: translate(-200px, -270px);
+    }
+    @media only screen and (min-width: 1280px){
+      transform: translate(-123px, -270px);
+    }
+    @media only screen and (min-width: 1440px){
+      transform: translate(-35px, -224px);
+    }
+    @media only screen and (min-width: 1600px){
+      transform: translate(85px, -224px);
+    }
   }
 }

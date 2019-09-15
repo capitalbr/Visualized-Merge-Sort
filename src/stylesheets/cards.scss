@@ -2,8 +2,15 @@
   display: flex;
   justify-content: center;
   padding: 10px 35px;
-  margin-top: 7px;
-  font-size: 28px;
+  @media only screen and (min-width: 0px){ 
+    margin-top: 0px;
+    font-size: 26px;
+    padding-top: 5px;
+  }
+  @media only screen and (min-width: 1440px){ 
+    margin-top: 7px;
+    font-size: 28px;
+  }
 }
 
 

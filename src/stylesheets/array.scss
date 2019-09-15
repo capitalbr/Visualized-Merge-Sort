@@ -1,14 +1,33 @@
 .array-container{
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-evenly;
   background-color: white;
   .left-container{
     width: 300px;
     color: black;
-    padding: 50px 116px 0px 85px;
+    @media only screen and (min-width: 0px){
+      padding: 23px 0px 0px 12px;    
+    }
+    @media only screen and (min-width: 1280px){
+      padding: 23px 60px 0px 31px;    
+    }
+    @media only screen and (min-width: 1440px){
+      padding: 23px 92px 0px 31px;     
+    }
+    @media only screen and (min-width: 1600px){
+      padding: 50px 116px 0px 85px;
+    }
     .title-and-description{
       .title{
-        font-size: 45px;
+        @media only screen and (min-width: 0px){
+          font-size: 38.5px; 
+        }
+        @media only screen and (min-width: 1440px){
+          font-size: 41px; 
+        }
+        @media only screen and (min-width: 1600px){
+          font-size: 45px;
+        }
         strong{
           background: linear-gradient(to left, #5A24B4, #FE37EA);
           border-radius: 30px;
@@ -21,46 +40,121 @@
       }
       .description{
         margin-top: 9px;
-        font-size: 20px;
+        @media only screen and (min-width: 0px){
+          overflow: hidden;
+          height: 35px;
+          font-size: 16px; 
+        }
+        @media only screen and (min-width: 1440px){
+          overflow: initial;
+          height: inherit;
+        }
+        @media only screen and (min-width: 1600px){
+          font-size: 20px;
+        }
       }
     }
     .instructions{
       margin-top: 25px;
       width: 370px;
       h2{
-        font-size: 30px;
-        margin-bottom: 12px;
+        @media only screen and (min-width: 0px){
+          font-size: 21px;
+          margin-bottom: 7px;
+        }
+        @media only screen and (min-width: 1280px){
+          font-size: 25px;
+        }
+        @media only screen and (min-width: 1440px){
+          font-size: 30px;
+          margin-bottom: 12px;
+        }
       }
       div{
         list-style: none;
+        @media only screen and (min-width: 0px){
+          transform: translate(-54px, 0px)
+        }
+        @media only screen and (min-width: 1280px){
+          transform: translate(-17px, 0px)
+        }
+        @media only screen and (min-width: 1440px){
+          transform: translate(0px, 0px)
+        }
         li{
           margin-bottom: 7px;
           font-size: 20px;
+          @media only screen and (min-width: 0px){
+            transform: scale(0.7);
+          }
+          @media only screen and (min-width: 1280px){
+            transform: scale(0.9);
+          }
+          @media only screen and (min-width: 1440px){
+            transform: scale(1);
+          }
         }
       }
     }
     .developer{
-      margin-top: 28px;
+      @media only screen and (min-width: 0px){
+        margin-top: 0px;        
+      }
+      @media only screen and (min-width: 1280px){
+        margin-top: 28px;
+      }
       .title{
-        background: black;
-        font-size: 23px;
-        margin-bottom: 12px;
-        color: white;
-        border-radius: 7px;
-        width: fit-content;
-        padding: 7px;
+         @media only screen and (min-width: 0px){
+          padding: 0px;
+          border-radius: 0px;
+          margin-bottom: 0px;
+          font-size: 16px;
+          border-bottom: 2px solid;
+          color: black;
+          background: none;
+          width: fit-content;
+        }
+        @media only screen and (min-width: 1280px){
+          padding: 5px;
+          border-radius: 5px;
+          margin-bottom: 7px;
+          font-size: 18px;
+          background: black;
+          color: white;
+          width: fit-content;
+        }
+        @media only screen and (min-width: 1440px){
+          padding: 7px;
+          border-radius: 7px;
+          margin-bottom: 12px;
+          font-size: 23px; 
+          background: black;
+          color: white;
+          width: fit-content;
+        }
       }
       #name{
         font-size: 20px;
         border-bottom: 2px solid black;
         width: fit-content;
+        @media only screen and (min-width: 0px){
+          display: none;
+        }
+        @media only screen and (min-width: 1440px){
+          display: inherit;
+        }
       }
       .links{
         transition: 0.2s;
         font-size: 18px;
-        margin: 7px;
         position: absolute;
         z-index: 10;
+        @media only screen and (min-width: 0px){
+          margin: 7px 0px 0px 0px;
+        }
+        @media only screen and (min-width: 1280px){
+          margin: 7px;
+        }
         &:hover{
           color: red;
           font-weight: bold;
@@ -68,45 +162,75 @@
         }
       }
       #linkedin-link{
-        transform: translate(0px, 25px);
+        @media only screen and (min-width: 0px){
+          transform: translate(75px, 0px);
+        }
+        @media only screen and (min-width: 1280px){
+          transform: translate(105px, 0px);
+        }
+        @media only screen and (min-width: 1440px){
+          transform: translate(0px, 25px);
+        }
       }
       #portfolio-link{
-        transform: translate(0px, 50px);
+        @media only screen and (min-width: 0px){
+          transform: translate(166px, 0px);
+        }
+        @media only screen and (min-width: 1280px){
+          transform: translate(225px, 0px);
+        }
+        @media only screen and (min-width: 1440px){
+          transform: translate(0px, 50px);
+        }
       }
     }
-    .speed-controls{
-      margin-top: 24px;
-      color: white;
-      border: 2px solid red;
-      h2{
-        display: flex;
-        justify-content: center;
-        background: red;
-        font-size: 24px;
-        margin: 0;
+    .speed-controls-container{
+      @media only screen and (min-width: 0px){
+        transform: translate(-28px, -15px);
       }
-      &-labels{
-        display: flex;
-        justify-content: space-between;
-        width: 277px;
-        padding-left: 11px;
-        strong{
-          margin: 5px;
-        }
-        #slow{
-          color: #5dc3d0;
-        }
-        #medium{
-          color: #a25dd0;
-        }
-        #fast{
-          color: #d05d5d;
-        }
-       
+      @media only screen and (min-width: 1280px){
+        transform: translate(0px, 0px);
       }
-      &-buttons{
-        display: flex;
-        justify-content: center;
+      .speed-controls{
+        margin-top: 24px;
+        color: white;
+        border: 2px solid red;
+        @media only screen and (min-width: 0px){
+          transform: scale(.8, .8);
+        }
+        @media only screen and (min-width: 1280px){
+          transform: scale(1, 1);
+        }
+        h2{
+          display: flex;
+          justify-content: center;
+          background: red;
+          font-size: 24px;
+          margin: 0;
+        }
+        &-labels{
+          display: flex;
+          justify-content: space-between;
+          width: 277px;
+          padding-left: 11px;
+          strong{
+            margin: 5px;
+          }
+          #slow{
+            color: #5dc3d0;
+          }
+          #medium{
+            color: #a25dd0;
+          }
+          #fast{
+            color: #d05d5d;
+          }
+         
+        }
+        &-buttons{
+          display: flex;
+          justify-content: center;
+        }
       }
     }
   }
@@ -116,22 +240,52 @@
     align-items: center;
     font-family: 'Share Tech Mono', monospace;
     border-left: solid;
-    width: 100%;
     min-width: 1016px;
+    @media only screen and (min-width: 0px){
+      width: 890px;
+      min-width: 890px;
+    }
+    @media only screen and (min-width: 1440px){
+      width: 1000px;
+    }
+    @media only screen and (min-width: 1600px){
+      width: 100%;
+    }
     .secondary-displays{
       display: flex;
-      width: 1000px;
       justify-content: center;
+      @media only screen and (min-width: 0px){
+        width: 840px;        
+        height: 288px;
+      }
+      @media only screen and (min-width: 1440px){
+        width: 840px;        
+        height: 368px;
+      }
+      @media only screen and (min-width: 1600px){
+        width: 1000px;
+        height: inherit;
+      }
       .left-right{
+        // border: 1px solid black;
         display: flex;
         justify-content: end;
         flex-direction: column-reverse;
-        width: 250px;
-        min-width: 250px;
-        max-width: 250px;
         margin: 50px;
         height: 300px;
-        transform: translate(0px, 300px);
+        @media only screen and (min-width: 0px){
+          width: 240px;
+          min-width: 240px;
+          max-width: 240px;
+          transform: translate(0px, 200px);
+          
+        }
+        @media only screen and (min-width: 1600px){
+          width: 250px;
+          min-width: 250px;
+          max-width: 250px;
+          transform: translate(0px, 300px);
+        }
         .array-index-item{
           margin: 3px;
           display: flex;
@@ -151,9 +305,14 @@
       display: flex;
       width: 530px;
       height: 200px;
-      transform: translate(0px, -110px);
       border-bottom: 70px solid black;
       border-radius: 15px;
+      @media only screen and (min-width: 0px){
+        transform: translate(0px, -156px);        
+      }
+      @media only screen and (min-width: 1440px){
+        transform: translate(0px, -110px);
+      }
       #awaiting-input{
         color: #AA33FF;
         font-size: 63px;
@@ -254,40 +413,70 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 50px;
-      margin-left: 75px;
-      margin-right: 75px;
+      @media only screen and (min-width: 0px){ 
+        margin: 0px 10px 0px 10px;  
+      }
+      @media only screen and (min-width: 1600px){
+        margin-bottom: 50px;
+        margin-left: 75px;
+        margin-right: 75px;
+      }
       ul{
         border: 2px solid black;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         list-style-type: none;
-        height: 200px;
         width: fit-content;
         padding: 0;
         align-items: center;
         width: 350px;
         margin: 0;
+        @media only screen and (min-width: 0px){ 
+          height: 105px; 
+        } 
+        @media only screen and (min-width: 1440px){ 
+          height: 200px;
+        } 
         li{
           margin: 4px;
         }
       }
     }
     .pseudo-container{
-      transform: translate(0px, -110px);
       display: flex;
       flex-direction: column;
       align-items: center;
+      @media only screen and (min-width: 0px){
+        transform: translate(0px, -149px);        
+      }
+      @media only screen and (min-width: 1440px){
+        transform: translate(0px, -110px);
+      }
       .stackMessage{
-        margin-bottom: 15px;
         font-weight: 1000;
-        font-size: 26px;
         color: #AA33FF;
+        @media only screen and (min-width: 0px){ 
+          font-size: 24px;
+          margin-top: 15px;
+        }
+        @media only screen and (min-width: 1600px){
+          font-size: 26px;
+          margin-bottom: 15px;
+        }
       }
       // html targeting is buggy so must do this
       #list{
         list-style: none;
+        padding: 0;
+        @media only screen and (min-width: 0px){ 
+          margin-block-start: .3em;
+          margin-block-end: 0;
+        }
+        @media only screen and (min-width: 1440px){ 
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+        }
         li{
           margin-bottom: 10px;
           .padding{
@@ -317,7 +506,12 @@
 
 // USER CONTROLS MODIFICATION FOR ArrayIndex component
 #play-pause{
-  transform: translate(96px, -171px);
+  @media only screen and (min-width: 0px){
+    transform: translate(96px, -217px);
+  }
+  @media only screen and (min-width: 1440px){
+    transform: translate(96px, -171px);
+  }
   display: flex;
   justify-content: space-between;
   width: 325px;
