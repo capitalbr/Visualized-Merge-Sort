@@ -195,12 +195,12 @@
         margin-top: 24px;
         color: white;
         border: 2px solid red;
-         @media only screen and (min-width: 0px){
-            transform: scale(.8, .8);
-          }
-          @media only screen and (min-width: 1280px){
-            transform: scale(1, 1);
-          }
+        @media only screen and (min-width: 0px){
+          transform: scale(.8, .8);
+        }
+        @media only screen and (min-width: 1280px){
+          transform: scale(1, 1);
+        }
         h2{
           display: flex;
           justify-content: center;
@@ -252,7 +252,6 @@
       width: 100%;
     }
     .secondary-displays{
-      border: 1px solid black;
       display: flex;
       justify-content: center;
       @media only screen and (min-width: 0px){
@@ -507,7 +506,12 @@
 
 // USER CONTROLS MODIFICATION FOR ArrayIndex component
 #play-pause{
-  transform: translate(96px, -171px);
+  @media only screen and (min-width: 0px){
+    transform: translate(96px, -217px);
+  }
+  @media only screen and (min-width: 1440px){
+    transform: translate(96px, -171px);
+  }
   display: flex;
   justify-content: space-between;
   width: 325px;

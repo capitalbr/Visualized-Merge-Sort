@@ -2,9 +2,32 @@
 body, html {
   height: 100%;
 }
+@media only screen and (min-width: 0px) {
+  body, html {
+    overflow: initial;
+    overflow-x: hidden;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  body, html {
+    overflow: hidden;
+  }
+}
 
 #root {
   height: 100%;
+}
+@media only screen and (min-width: 0px) {
+  #root {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  #root {
+    overflow-y: initial;
+    overflow-x: initial;
+  }
 }
 
 .array-container {
@@ -327,7 +350,6 @@ body, html {
   }
 }
 .array-container .right-container .secondary-displays {
-  border: 1px solid black;
   display: flex;
   justify-content: center;
 }
@@ -606,11 +628,20 @@ body, html {
 }
 
 #play-pause {
-  transform: translate(96px, -171px);
   display: flex;
   justify-content: space-between;
   width: 325px;
   height: 53px;
+}
+@media only screen and (min-width: 0px) {
+  #play-pause {
+    transform: translate(96px, -217px);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  #play-pause {
+    transform: translate(96px, -171px);
+  }
 }
 
 .animate-right {
@@ -693,19 +724,39 @@ body, html {
   }
 }
 .main {
+  background-color: black;
   font-family: "Share Tech Mono", monospace;
   min-width: 1584px;
   height: inherit;
 }
 .main .user-controls {
   margin: 0;
-  transform: translate(85px, -224px);
   font-size: 35px;
   display: flex;
   justify-content: center;
   width: 100%;
   z-index: 1;
   color: white;
+}
+@media only screen and (min-width: 0px) {
+  .main .user-controls {
+    transform: translate(-200px, -270px);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main .user-controls {
+    transform: translate(-123px, -270px);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .main .user-controls {
+    transform: translate(-35px, -224px);
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .main .user-controls {
+    transform: translate(85px, -224px);
+  }
 }
 
 .box-title-bottom {
