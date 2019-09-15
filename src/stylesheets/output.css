@@ -2,32 +2,9 @@
 body, html {
   height: 100%;
 }
-@media only screen and (min-width: 0px) {
-  body, html {
-    overflow: initial;
-    overflow-x: hidden;
-  }
-}
-@media only screen and (min-width: 1600px) {
-  body, html {
-    overflow: hidden;
-  }
-}
 
 #root {
   height: 100%;
-}
-@media only screen and (min-width: 0px) {
-  #root {
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-}
-@media only screen and (min-width: 1600px) {
-  #root {
-    overflow-y: initial;
-    overflow-x: initial;
-  }
 }
 
 .array-container {
