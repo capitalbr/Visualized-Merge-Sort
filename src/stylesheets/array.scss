@@ -1,6 +1,5 @@
 .array-container{
   display: flex;
-  // justify-content: space-evenly;
   background-color: white;
   .left-container{
     width: 300px;
@@ -145,6 +144,8 @@
         }
       }
       .links{
+        color: black;
+        text-decoration: none;
         transition: 0.2s;
         font-size: 18px;
         position: absolute;
@@ -267,7 +268,6 @@
         height: inherit;
       }
       .left-right{
-        // border: 1px solid black;
         display: flex;
         justify-content: end;
         flex-direction: column-reverse;
@@ -465,7 +465,7 @@
           margin-bottom: 15px;
         }
       }
-      // html targeting is buggy so must do this
+
       #list{
         list-style: none;
         padding: 0;
@@ -565,7 +565,7 @@
   0% { transform: scale(0.4); }
   100% { transform: scale(1) }
 }
-// necessary to trigger a rerender of the above animation
+// NECESSARY TO TRIGGER A RERENDER OF THE ABOVE ANIMATION
 @keyframes grow2 {
   0% { transform: scale(0.4); }
   100% { transform: scale(1) }

@@ -1,6 +1,4 @@
 import React from 'react'
-// const React = require('react')
-// const random = require('lodash.random')
 import ArrayIndexItem from "./array_index_item"
 
 export default class ArrayIndex extends React.Component {
@@ -37,7 +35,6 @@ export default class ArrayIndex extends React.Component {
 
   addNewCallListener(){
     document.getElementById("new-call").addEventListener("click", () => {
-      // debugger
       if (this.state.pausePlay === "START") this.togglePausePlay();
     });
   }
@@ -52,7 +49,6 @@ export default class ArrayIndex extends React.Component {
             pointerEvents: "none"
           }
         })
-        // clearInterval(this.interval);
       }
       this.setState({
         array: this.props.arrays.shift(),
@@ -63,7 +59,6 @@ export default class ArrayIndex extends React.Component {
         priorStack: this.state.stack
       })
     }
-    // this.speedStyleSetter();
   }
 
   intervalSet(delay = 500, initialSet = true){
@@ -446,9 +441,19 @@ export default class ArrayIndex extends React.Component {
               Developer Info
             </div>
             <div id="name">Bradley Barnes</div>
-            <div className="links">GitHub</div>
-            <div id="linkedin-link" className="links">Linkedin</div>
-            <div id="portfolio-link" className="links">Portfolio</div>
+            <a href="https://github.com/capitalbr" className="links">GitHub</a>
+            <a 
+              href="https://www.linkedin.com/in/bradley-barnes-53b118102/" 
+              id="linkedin-link" 
+              className="links">
+              Linkedin
+            </a>
+            <a 
+              href="https://bradley-barnes.netlify.com/"
+              id="portfolio-link" 
+              className="links">
+              Portfolio
+            </a>
           </div>
         </div>
         <div className="right-container">
@@ -531,7 +536,6 @@ export default class ArrayIndex extends React.Component {
               <li style={styleMerged}>
                 Merge any already sorted items remaining
               </li>
-              {/* {message} */}
             </ul>
           </div>
           <div className="array-main">

@@ -1,6 +1,4 @@
 import React from 'react'
-// const React = require('react')
-// const random = require('lodash.random')
 
 export default class ArrayIndexItem extends React.Component {
 

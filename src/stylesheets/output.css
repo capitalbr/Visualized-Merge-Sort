@@ -198,6 +198,8 @@ body, html {
   }
 }
 .array-container .left-container .developer .links {
+  color: black;
+  text-decoration: none;
   transition: 0.2s;
   font-size: 18px;
   position: absolute;
